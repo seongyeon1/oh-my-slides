@@ -2,6 +2,8 @@
 
 A [Claude Code](https://docs.anthropic.com/en/docs/claude-code) plugin that generates animation-rich HTML presentations from natural language prompts. 20 curated design presets, PPTX export, and zero-dependency output.
 
+**English** | [한국어](README.ko.md)
+
 ![20 Curated Design Presets](docs/preset-gallery.png)
 
 > **[Live Demo](https://seongyeon1.github.io/oh-my-slides/)** | Open [`gallery.html`](gallery.html) locally for the same experience.
