@@ -1,0 +1,17 @@
+/* Neo-Brutalism — 대담, 펑크, 거칠고 강렬한, 반디자인 */
+:root {
+  --bg-primary: #F5F500;
+  --bg-secondary: #CCFF00;
+  --bg-card: #ffffff;
+  --text-primary: #000000;
+  --text-secondary: #333333;
+  --accent: #FF2D55;
+  --accent-secondary: #4400FF;
+  --accent-soft: rgba(255,45,85,0.15);
+  --border: #000000;
+  --border-width: 4px;
+  --shadow-hard: 8px 8px 0 #000;
+  --shadow-hard-sm: 5px 5px 0 #000;
+  --font-display: 'Arial Black', 'Impact', 'Pretendard', sans-serif;
+  --font-body: 'Courier New', 'Space Mono', monospace;
+}

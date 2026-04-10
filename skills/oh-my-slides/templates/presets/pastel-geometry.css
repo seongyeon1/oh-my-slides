@@ -1,0 +1,14 @@
+/* Pastel Geometry — 친근, 정돈, 모던, 부드러움 */
+:root {
+  --bg-primary: #c8d9e6;
+  --bg-secondary: #faf9f7;
+  --bg-card: #faf9f7;
+  --text-primary: #1a1a1a;
+  --text-secondary: #666;
+  --accent: #5a7c6a;
+  --accent-soft: rgba(90,124,106,0.1);
+  --border: rgba(0,0,0,0.06);
+  --font-display: 'Plus Jakarta Sans', 'Pretendard', sans-serif;
+  --font-body: 'Plus Jakarta Sans', 'Pretendard', sans-serif;
+}
+/* 필 색상: pink #f0b4d4, mint #a8d4c4, sage #5a7c6a, lavender #9b8dc4, violet #7c6aad */

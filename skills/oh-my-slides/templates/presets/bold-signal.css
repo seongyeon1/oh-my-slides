@@ -1,0 +1,13 @@
+/* Bold Signal — 자신감, 대담, 모던, 하이임팩트 */
+:root {
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #2d2d2d;
+  --bg-card: #FF5722;
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255,255,255,0.7);
+  --accent: #FF5722;
+  --accent-soft: rgba(255,87,34,0.15);
+  --border: rgba(255,255,255,0.08);
+  --font-display: 'Archivo Black', 'Pretendard', sans-serif;
+  --font-body: 'Space Grotesk', 'Pretendard', sans-serif;
+}

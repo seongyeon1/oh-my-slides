@@ -1,0 +1,164 @@
+/* ===== 노이즈 텍스처 ===== */
+body::before {
+  content: ''; position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.03; pointer-events: none; z-index: 0;
+}
+
+/* ===== 그래디언트 메시 (Atmospheric) ===== */
+.bg-gradient-mesh::before {
+  content: ''; position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(120,80,200,0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(255,100,100,0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(59,130,246,0.1) 0%, transparent 50%);
+  pointer-events: none; z-index: 0;
+}
+
+/* ===== 그리드 배경 ===== */
+.bg-grid::before {
+  content: ''; position: absolute; inset: 0;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 60px 60px; opacity: 0.3; pointer-events: none;
+}
+
+/* ===== 글로우 효과 (다크 테마) ===== */
+.glow { box-shadow: 0 0 60px rgba(var(--accent-rgb), 0.15); }
+.text-glow { text-shadow: 0 0 20px rgba(var(--accent-rgb), 0.5); }
+
+/* ===== 도트 그리드 (Cyberpunk Outline) ===== */
+.bg-dot-grid::before {
+  content: ''; position: absolute; inset: 0;
+  background-image: radial-gradient(circle, var(--dot-grid-color, rgba(0,255,200,0.15)) 1px, transparent 1px);
+  background-size: var(--dot-grid-size, 16px) var(--dot-grid-size, 16px);
+  pointer-events: none; z-index: 0;
+}
+
+/* ===== 4코너 브라켓 (Cyberpunk Outline) ===== */
+.corner-brackets::before,
+.corner-brackets::after {
+  content: ''; position: absolute; width: 24px; height: 24px;
+  border-color: var(--bracket-color, rgba(0,255,200,0.3)); border-style: solid; border-width: 0;
+}
+.corner-brackets::before { top: 12px; left: 12px; border-top-width: 2px; border-left-width: 2px; }
+.corner-brackets::after { top: 12px; right: 12px; border-top-width: 2px; border-right-width: 2px; }
+.corner-brackets .bracket-bl,
+.corner-brackets .bracket-br { position: absolute; width: 24px; height: 24px; border-color: var(--bracket-color, rgba(0,255,200,0.3)); border-style: solid; border-width: 0; }
+.corner-brackets .bracket-bl { bottom: 12px; left: 12px; border-bottom-width: 2px; border-left-width: 2px; }
+.corner-brackets .bracket-br { bottom: 12px; right: 12px; border-bottom-width: 2px; border-right-width: 2px; }
+
+/* ===== 글래스 카드 (Glassmorphism) ===== */
+.glass-card {
+  background: var(--glass-bg, rgba(255,255,255,0.12));
+  backdrop-filter: blur(var(--glass-blur, 20px));
+  -webkit-backdrop-filter: blur(var(--glass-blur, 20px));
+  border: 1px solid var(--glass-border, rgba(255,255,255,0.2));
+  border-radius: 16px;
+}
+
+/* ===== 글로우 블롭 (Glassmorphism) ===== */
+.glow-blob {
+  position: absolute; border-radius: 50%; filter: blur(40px); pointer-events: none; z-index: 0;
+}
+.glow-blob.cyan { width: 200px; height: 200px; background: var(--glow-cyan, rgba(0,212,255,0.3)); }
+.glow-blob.purple { width: 160px; height: 160px; background: var(--glow-purple, rgba(168,85,247,0.3)); }
+
+/* ===== 그래디언트 메시 풀블리드 (Gradient Mesh) ===== */
+.bg-gradient-mesh-full {
+  background: var(--bg-gradient), var(--bg-primary);
+}
+
+/* ===== 50/50 수직 분할 (Duotone Split) ===== */
+.bg-duotone-split {
+  background: linear-gradient(90deg, var(--color-left) 50%, var(--color-right) 50%);
+  position: relative;
+}
+.bg-duotone-split .divider {
+  position: absolute; left: 50%; top: 10%; width: var(--divider-width, 2px); height: 80%;
+  background: var(--divider, rgba(255,255,255,0.3)); transform: translateX(-50%);
+}
+
+/* ===== 하드 섀도 카드 (Neo-Brutalism) ===== */
+.brutal-card {
+  background: var(--bg-card, #fff);
+  border: var(--border-width, 4px) solid var(--border, #000);
+  box-shadow: var(--shadow-hard, 8px 8px 0 #000);
+}
+.brutal-card-sm {
+  background: var(--bg-card, #fff);
+  border: 3px solid var(--border, #000);
+  box-shadow: var(--shadow-hard-sm, 5px 5px 0 #000);
+}
+
+/* ===== 이중 인셋 프레임 (Dark Academia) ===== */
+.frame-double {
+  position: relative;
+}
+.frame-double::before {
+  content: ''; position: absolute; inset: var(--frame-offset, 8px);
+  border: 1px solid var(--border); pointer-events: none;
+}
+.frame-double::after {
+  content: ''; position: absolute; inset: calc(var(--frame-offset, 8px) + 4px);
+  border: 1px solid var(--border-inner, rgba(201,168,76,0.12)); pointer-events: none;
+}
+
+/* ===== 종이 텍스처 (Dark Academia, Risograph) ===== */
+.bg-paper-texture::before {
+  content: ''; position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.04; pointer-events: none; z-index: 0;
+}
+
+/* ===== 리소그래프 3색 원 오버랩 (Risograph Print) ===== */
+.riso-circles { position: relative; }
+.riso-circle {
+  position: absolute; border-radius: 50%; mix-blend-mode: multiply;
+}
+.riso-circle.red { background: var(--riso-red, #E8344A); opacity: 0.7; }
+.riso-circle.blue { background: var(--riso-blue, #0D5C9E); opacity: 0.7; }
+.riso-circle.yellow { background: var(--riso-yellow, #F5D020); opacity: 0.7; }
+
+/* ===== 고스트 텍스트 (Risograph Print) ===== */
+.ghost-text {
+  position: absolute;
+  opacity: var(--ghost-opacity, 0.08);
+  transform: translate(var(--ghost-offset, 4px), var(--ghost-offset, 4px));
+  pointer-events: none;
+}
+
+/* ===== Bento 비대칭 그리드 ===== */
+.bento-layout {
+  display: grid; gap: 6px;
+  grid-template: "a a b" "a a c" "d e c" / 1fr 1fr 1fr;
+}
+.bento-cell { border-radius: var(--cell-radius, 16px); padding: 20px; }
+.bento-anchor { background: var(--cell-navy, #1E293B); color: #fff; grid-area: a; }
+
+/* ===== 좌측 수직 사이드바 ===== */
+.sidebar-left::before {
+  content: ''; position: absolute;
+  left: 0; top: 15%; width: var(--sidebar-width, 6px); height: 70%;
+  background: var(--sidebar-color, #01453A);
+  border-radius: 0 4px 4px 0;
+  z-index: 1;
+}
+
+/* ===== 듀얼 톤 배경 전환 ===== */
+.bg-dark-to-light {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+.bg-light-section {
+  background: var(--bg-secondary);
+  color: var(--text-primary-light, var(--text-primary));
+}
+
+/* ===== 스캔라인 (Terminal Green) ===== */
+.bg-scanlines::after {
+  content: ''; position: absolute; inset: 0;
+  background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px);
+  pointer-events: none; z-index: 0;
+}

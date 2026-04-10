@@ -1,0 +1,40 @@
+<!-- ===== 시각화 컴포넌트 (Slide Template용) ===== -->
+
+<!-- 희소 벡터 바 차트 -->
+<!--
+CSS:
+.vocab-bar { width: 4px; background-color: #e5e7eb; border-radius: 2px; }
+.vocab-bar.active { background-color: #10b981; }
+.vocab-bar.expansion { background-color: #f59e0b; }
+-->
+<div class="flex items-end justify-between h-16 w-full space-x-1 px-2 border-b border-gray-200 pb-1">
+  <div class="vocab-bar h-1"></div>
+  <div class="vocab-bar active h-12 w-3"></div>
+  <div class="vocab-bar h-0"></div>
+  <div class="vocab-bar expansion h-8 w-3"></div>
+  <!-- 반복 -->
+</div>
+
+<!-- 값 뱃지 -->
+<span class="bg-white px-1.5 py-0.5 rounded shadow-sm border border-green-100 font-mono text-xs">
+  python: <span class="font-bold">2.4</span>
+</span>
+<span class="bg-yellow-50 text-yellow-800 px-1.5 py-0.5 rounded shadow-sm border border-yellow-200 font-mono text-xs">
+  program: <span class="font-bold">1.2</span>
+</span>
+
+<!-- 아이콘 원형 뱃지 -->
+<div class="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center text-primary">
+  <i class="fas fa-brain text-lg"></i>
+</div>
+
+<!-- 수식/코드 인라인 -->
+<div class="text-xs font-mono bg-gray-100 px-2 py-1 rounded">ReLU(W·h + b)</div>
+
+<!-- 알림 뱃지 -->
+<div class="bg-green-50 p-2 rounded text-xs text-green-800 font-medium">
+  <i class="fas fa-arrow-right mr-1"></i> 핵심 포인트
+</div>
+<div class="bg-red-50 p-2 rounded text-xs text-red-800 font-medium">
+  <i class="fas fa-exclamation-triangle mr-1"></i> 주의사항
+</div>

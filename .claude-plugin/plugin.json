@@ -1,0 +1,9 @@
+{
+  "name": "oh-my-slides",
+  "version": "1.0.0",
+  "description": "AI-powered HTML presentation generator with 20 curated design presets, PPTX export, and Excalidraw diagrams",
+  "author": {
+    "name": "seongyeon1"
+  },
+  "skills": "./skills/"
+}

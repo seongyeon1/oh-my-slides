@@ -1,0 +1,25 @@
+<!-- 패턴 1: 2컬럼 (텍스트 카드 + 시각화) -->
+<div class="flex flex-1 px-12 py-8 gap-8 bg-gray-50 bg-opacity-30 items-center">
+  <!-- Left: 텍스트 카드 (45%) -->
+  <div class="w-5/12 flex flex-col space-y-5">
+    <!-- 카드 반복 -->
+    <div class="bg-white p-5 rounded-xl shadow-sm border-l-4 border-primary">
+      <div class="flex items-center mb-2">
+        <div class="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center mr-4 text-primary">
+          <i class="fas fa-brain text-lg"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-800">카드 제목</h3>
+      </div>
+      <p class="text-gray-600 leading-relaxed text-sm">설명 텍스트</p>
+      <div class="mt-2 bg-green-50 p-2 rounded text-xs text-green-800 font-medium">
+        <i class="fas fa-arrow-right mr-1"></i> 핵심 포인트
+      </div>
+    </div>
+  </div>
+  <!-- Right: 다이어그램/시각화 (55%) -->
+  <div class="w-7/12 h-full flex flex-col gap-4">
+    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex-1">
+      <!-- 시각화 콘텐츠 -->
+    </div>
+  </div>
+</div>

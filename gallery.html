@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PPT Preset Gallery — 20 Curated Styles</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Archivo+Black&family=Space+Grotesk:wght@400;500&family=Manrope:wght@400;500;800&family=Syne:wght@700;800&family=Space+Mono:wght@400;700&family=Cormorant:wght@400;600&family=IBM+Plex+Sans:wght@300;400&family=Bodoni+Moda:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;700;800&family=Outfit:wght@400;500;700;800&family=Fraunces:wght@700;900&family=Work+Sans:wght@400;500&family=JetBrains+Mono:wght@400;700&family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=EB+Garamond:wght@400;500&family=Cormorant+Garamond:wght@400;600&family=Source+Serif+4:wght@400;600&family=Archivo:wght@400;800&family=Nunito:wght@400;600&family=Noto+Sans+KR:wght@400;700&family=Noto+Serif+KR:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', 'Pretendard', sans-serif;
+  background: #0a0a0a;
+  color: #e0e0e0;
+  min-height: 100vh;
+}
+
+/* ── Header ── */
+.gallery-header {
+  text-align: center;
+  padding: clamp(3rem, 8vh, 6rem) 2rem clamp(2rem, 4vh, 3rem);
+  max-width: 800px;
+  margin: 0 auto;
+}
+.gallery-header h1 {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  background: linear-gradient(135deg, #fff 0%, #999 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.gallery-header p {
+  margin-top: 1rem;
+  font-size: clamp(0.9rem, 1.2vw, 1.05rem);
+  color: #888;
+  line-height: 1.6;
+}
+.gallery-header .count {
+  display: inline-block;
+  margin-top: 1.2rem;
+  padding: 0.35rem 1rem;
+  border: 1px solid #333;
+  border-radius: 100px;
+  font-size: 0.8rem;
+  color: #aaa;
+  letter-spacing: 0.05em;
+}
+
+/* ── Filter ── */
+.filter-bar {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0 2rem 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.filter-btn {
+  padding: 0.4rem 1rem;
+  border: 1px solid #333;
+  border-radius: 100px;
+  background: transparent;
+  color: #999;
+  font-size: 0.8rem;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.filter-btn:hover { border-color: #666; color: #fff; }
+.filter-btn.active { background: #fff; color: #0a0a0a; border-color: #fff; }
+
+/* ── Grid ── */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 380px), 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
+  padding: 0 clamp(1rem, 3vw, 3rem) clamp(3rem, 6vh, 5rem);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ── Card ── */
+.preset-card {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #1f1f1f;
+  background: #111;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+}
+.preset-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+}
+
+/* ── Preview area ── */
+.preview {
+  position: relative;
+  height: 240px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+}
+.preview .title-text {
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+.preview .subtitle-text {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  opacity: 0.7;
+}
+.preview .accent-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+}
+/* Signature elements per preset — added via specific classes */
+.preview .sig-element {
+  position: absolute;
+}
+
+/* ── Card info ── */
+.card-info {
+  padding: 1.2rem 1.5rem 1.5rem;
+}
+.card-info .card-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.25rem;
+}
+.card-info .card-mood {
+  font-size: 0.78rem;
+  color: #777;
+  margin-bottom: 0.8rem;
+}
+.card-info .card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 0.8rem;
+}
+.card-info .tag {
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+.tag-dark { background: #1a1a2e; color: #8888cc; }
+.tag-light { background: #f0ece4; color: #666; }
+.tag-specialty { background: #1a2e1a; color: #88cc88; }
+.tag-new { background: #2e1a1a; color: #cc8888; }
+
+/* ── Palette + Font strip ── */
+.palette-row {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.swatch {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.1);
+  flex-shrink: 0;
+}
+.font-label {
+  margin-left: auto;
+  font-size: 0.7rem;
+  color: #555;
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 160px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .preview { height: 200px; padding: 1.5rem; }
+  .preview .title-text { font-size: 1.4rem; }
+}
+</style>
+</head>
+<body>
+
+<header class="gallery-header">
+  <h1>Preset Gallery</h1>
+  <p>20 curated design presets for HTML presentations.<br>
+  Each style includes colors, typography, signature elements, and animations.</p>
+  <span class="count">20 PRESETS</span>
+</header>
+
+<nav class="filter-bar">
+  <button class="filter-btn active" data-filter="all">All</button>
+  <button class="filter-btn" data-filter="dark">Dark</button>
+  <button class="filter-btn" data-filter="light">Light</button>
+  <button class="filter-btn" data-filter="specialty">Specialty</button>
+  <button class="filter-btn" data-filter="new">Extended</button>
+</nav>
+
+<main class="gallery-grid" id="grid"></main>
+
+<script>
+const presets = [
+  // ── Dark (1-4) ──
+  {
+    id: 'bold-signal', name: 'Bold Signal', category: 'dark',
+    mood: 'Confident, Bold, Modern, High-impact',
+    moodKo: '자신감, 대담, 모던, 하이임팩트',
+    bg: '#1a1a1a', bgSec: '#2d2d2d', text: '#ffffff', textSec: 'rgba(255,255,255,0.7)',
+    accent: '#FF5722', accentSoft: 'rgba(255,87,34,0.15)',
+    fontDisplay: "'Archivo Black', sans-serif", fontBody: "'Space Grotesk', sans-serif",
+    fontLabel: 'Archivo Black + Space Grotesk',
+    sig: 'Color cards on dark gradient, section numbers, breadcrumb nav'
+  },
+  {
+    id: 'electric-studio', name: 'Electric Studio', category: 'dark',
+    mood: 'Bold, Clean, Professional, High-contrast',
+    moodKo: '볼드, 클린, 프로페셔널, 하이 콘트라스트',
+    bg: '#0a0a0a', bgSec: '#ffffff', text: '#ffffff', textSec: 'rgba(255,255,255,0.6)',
+    accent: '#4361ee', accentSoft: 'rgba(67,97,238,0.15)',
+    fontDisplay: "'Manrope', sans-serif", fontBody: "'Manrope', sans-serif",
+    fontLabel: 'Manrope 800 / 400',
+    sig: 'Vertical split panels, edge accent bars, quote heroes'
+  },
+  {
+    id: 'creative-voltage', name: 'Creative Voltage', category: 'dark',
+    mood: 'Energy, Creative, Retro-modern',
+    moodKo: '에너지, 크리에이티브, 레트로-모던',
+    bg: '#1a1a2e', bgSec: '#0066ff', text: '#ffffff', textSec: 'rgba(255,255,255,0.7)',
+    accent: '#d4ff00', accentSoft: 'rgba(212,255,0,0.15)',
+    fontDisplay: "'Syne', sans-serif", fontBody: "'Space Mono', monospace",
+    fontLabel: 'Syne + Space Mono',
+    sig: 'Halftone texture, neon badges, script typography'
+  },
+  {
+    id: 'dark-botanical', name: 'Dark Botanical', category: 'dark',
+    mood: 'Elegant, Refined, Artistic, Premium',
+    moodKo: '우아, 세련, 아티스틱, 프리미엄',
+    bg: '#0f0f0f', bgSec: '#1a1a1a', text: '#e8e4df', textSec: '#9a9590',
+    accent: '#d4a574', accentSoft: 'rgba(212,165,116,0.12)',
+    fontDisplay: "'Cormorant', serif", fontBody: "'IBM Plex Sans', sans-serif",
+    fontLabel: 'Cormorant + IBM Plex Sans',
+    sig: 'Blurred gradient orbs, thin vertical lines, italic signatures'
+  },
+
+  // ── Light (5-8) ──
+  {
+    id: 'notebook-tabs', name: 'Notebook Tabs', category: 'light',
+    mood: 'Editorial, Organized, Elegant, Tactile',
+    moodKo: '에디토리얼, 정돈, 우아, 촉각적',
+    bg: '#2d2d2d', bgSec: '#f8f6f1', text: '#1a1a1a', textSec: '#666',
+    accent: '#98d4bb', accentSoft: 'rgba(152,212,187,0.2)',
+    fontDisplay: "'Bodoni Moda', serif", fontBody: "'DM Sans', sans-serif",
+    fontLabel: 'Bodoni Moda + DM Sans',
+    sig: 'Vertical text tabs, binder holes, paper shadow'
+  },
+  {
+    id: 'pastel-geometry', name: 'Pastel Geometry', category: 'light',
+    mood: 'Friendly, Organized, Modern, Soft',
+    moodKo: '친근, 정돈, 모던, 부드러움',
+    bg: '#c8d9e6', bgSec: '#faf9f7', text: '#1a1a1a', textSec: '#666',
+    accent: '#5a7c6a', accentSoft: 'rgba(90,124,106,0.1)',
+    fontDisplay: "'Plus Jakarta Sans', sans-serif", fontBody: "'Plus Jakarta Sans', sans-serif",
+    fontLabel: 'Plus Jakarta Sans 700 / 400',
+    sig: 'Height-varying pills, round cards, soft shadows'
+  },
+  {
+    id: 'split-pastel', name: 'Split Pastel', category: 'light',
+    mood: 'Playful, Modern, Friendly, Creative',
+    moodKo: '플레이풀, 모던, 친근, 크리에이티브',
+    bg: '#f5e6dc', bgSec: '#e4dff0', text: '#1a1a1a', textSec: '#555',
+    accent: '#1a1a1a', accentSoft: 'rgba(26,26,26,0.08)',
+    fontDisplay: "'Outfit', sans-serif", fontBody: "'Outfit', sans-serif",
+    fontLabel: 'Outfit 700 / 400',
+    sig: 'Badge pills with icons, grid overlay, round CTA'
+  },
+  {
+    id: 'vintage-editorial', name: 'Vintage Editorial', category: 'light',
+    mood: 'Witty, Confident, Editorial, Character',
+    moodKo: '위트, 자신감, 에디토리얼, 개성',
+    bg: '#f5f3ee', bgSec: '#ffffff', text: '#1a1a1a', textSec: '#555',
+    accent: '#e8d4c0', accentSoft: 'rgba(232,212,192,0.3)',
+    fontDisplay: "'Fraunces', serif", fontBody: "'Work Sans', sans-serif",
+    fontLabel: 'Fraunces + Work Sans',
+    sig: 'CSS geometry (circles, lines, dots), thick border CTA'
+  },
+
+  // ── Specialty (9-12) ──
+  {
+    id: 'neon-cyber', name: 'Neon Cyber', category: 'specialty',
+    mood: 'Futuristic, Tech, Confident',
+    moodKo: '미래적, 테크, 자신감',
+    bg: '#0a0f1c', bgSec: '#111827', text: '#e0e0e0', textSec: '#64748b',
+    accent: '#00ffcc', accentSoft: 'rgba(0,255,204,0.1)',
+    fontDisplay: "'Inter', sans-serif", fontBody: "'Inter', sans-serif",
+    fontLabel: 'Clash Display + Satoshi',
+    sig: 'Particle backgrounds, neon glow, grid patterns'
+  },
+  {
+    id: 'terminal-green', name: 'Terminal Green', category: 'specialty',
+    mood: 'Developer, Hacker aesthetic',
+    moodKo: '개발자, 해커 미학',
+    bg: '#0d1117', bgSec: '#161b22', text: '#c9d1d9', textSec: '#8b949e',
+    accent: '#39d353', accentSoft: 'rgba(57,211,83,0.1)',
+    fontDisplay: "'JetBrains Mono', monospace", fontBody: "'JetBrains Mono', monospace",
+    fontLabel: 'JetBrains Mono',
+    sig: 'Scanlines, blinking cursor, syntax highlighting'
+  },
+  {
+    id: 'swiss-modern', name: 'Swiss Modern', category: 'specialty',
+    mood: 'Clean, Precise, Bauhaus',
+    moodKo: '클린, 정밀, 바우하우스',
+    bg: '#ffffff', bgSec: '#f5f5f5', text: '#000000', textSec: '#666',
+    accent: '#ff3300', accentSoft: 'rgba(255,51,0,0.08)',
+    fontDisplay: "'Archivo', sans-serif", fontBody: "'Nunito', sans-serif",
+    fontLabel: 'Archivo + Nunito',
+    sig: 'Visible grid, asymmetric layout, geometric shapes'
+  },
+  {
+    id: 'paper-and-ink', name: 'Paper & Ink', category: 'specialty',
+    mood: 'Editorial, Literary, Thoughtful',
+    moodKo: '에디토리얼, 문학적, 사려깊음',
+    bg: '#faf9f7', bgSec: '#ffffff', text: '#1a1a1a', textSec: '#666',
+    accent: '#c41e3a', accentSoft: 'rgba(196,30,58,0.08)',
+    fontDisplay: "'Cormorant Garamond', serif", fontBody: "'Source Serif 4', serif",
+    fontLabel: 'Cormorant Garamond + Source Serif 4',
+    sig: 'Drop caps, pull quotes, elegant dividers'
+  },
+
+  // ── New / Extended (13-20) ──
+  {
+    id: 'neo-brutalism', name: 'Neo-Brutalism', category: 'new',
+    mood: 'Bold, Punk, Rough, Anti-design',
+    moodKo: '대담, 펑크, 거칠고 강렬한, 반디자인',
+    bg: '#F5F500', bgSec: '#CCFF00', text: '#000000', textSec: '#333',
+    accent: '#FF2D55', accentSoft: 'rgba(255,45,85,0.15)',
+    fontDisplay: "'Arial Black', sans-serif", fontBody: "'Courier New', monospace",
+    fontLabel: 'Arial Black + Courier New',
+    sig: 'Hard offset shadows, thick borders, fluorescent colors'
+  },
+  {
+    id: 'bento-grid', name: 'Bento Grid', category: 'new',
+    mood: 'Modern, Organized, Apple-style, Sleek',
+    moodKo: '모던, 정돈, Apple 스타일, 매끈',
+    bg: '#F8F8F2', bgSec: '#ffffff', text: '#1a1a1a', textSec: '#666',
+    accent: '#FFD60A', accentSoft: 'rgba(255,214,10,0.12)',
+    fontDisplay: "'Inter', sans-serif", fontBody: "'Inter', sans-serif",
+    fontLabel: 'SF Pro / Inter',
+    sig: 'Asymmetric multi-size grid, 16px radius cells, icon+number combos'
+  },
+  {
+    id: 'dark-academia', name: 'Dark Academia', category: 'new',
+    mood: 'Academic, Vintage dark, Classic, Elegant',
+    moodKo: '학구적, 빈티지 다크, 고전적, 우아',
+    bg: '#1A1208', bgSec: '#2A1F10', text: '#E8DCC8', textSec: '#9A8B6F',
+    accent: '#C9A84C', accentSoft: 'rgba(201,168,76,0.12)',
+    fontDisplay: "'Playfair Display', serif", fontBody: "'EB Garamond', serif",
+    fontLabel: 'Playfair Display + EB Garamond',
+    sig: 'Double inset border frames, italic gold headings, parchment texture'
+  },
+  {
+    id: 'glassmorphism', name: 'Glassmorphism', category: 'new',
+    mood: 'Translucent, Depth, Modern, Premium',
+    moodKo: '반투명, 깊이감, 모던, 프리미엄',
+    bg: '#1A1A4E', bgSec: '#6B21A8', text: '#ffffff', textSec: 'rgba(255,255,255,0.7)',
+    accent: '#00D4FF', accentSoft: 'rgba(0,212,255,0.15)',
+    fontDisplay: "'Inter', sans-serif", fontBody: "'Inter', sans-serif",
+    fontLabel: 'Inter',
+    sig: 'Backdrop blur glass cards, glow orbs, translucent borders'
+  },
+  {
+    id: 'gradient-mesh', name: 'Gradient Mesh', category: 'new',
+    mood: 'Artistic, Colorful, Fluid, Impact',
+    moodKo: '아티스틱, 컬러풀, 유동적, 임팩트',
+    bg: '#1a1a2e', bgSec: '#2a2a4e', text: '#ffffff', textSec: 'rgba(255,255,255,0.8)',
+    accent: '#ffffff', accentSoft: 'rgba(255,255,255,0.15)',
+    fontDisplay: "'Bebas Neue', sans-serif", fontBody: "'Outfit', sans-serif",
+    fontLabel: 'Bebas Neue + Outfit',
+    sig: 'Multi radial-gradient background, all-white text, thin sans body',
+    meshColors: ['#FF6EC7','#7B61FF','#00D4FF','#FFB347']
+  },
+  {
+    id: 'duotone-split', name: 'Duotone Split', category: 'new',
+    mood: 'Contrast, Focus, Graphic, Intense',
+    moodKo: '대비, 포커스, 그래픽, 강렬',
+    bg: '#1A1A2E', bgSec: '#FF4500', text: '#ffffff', textSec: 'rgba(255,255,255,0.7)',
+    accent: '#FF4500', accentSoft: 'rgba(255,69,0,0.15)',
+    fontDisplay: "'Bebas Neue', sans-serif", fontBody: "'Space Mono', monospace",
+    fontLabel: 'Bebas Neue + Space Mono',
+    sig: 'Vertical 50/50 split, center white divider, cross-panel color echo'
+  },
+  {
+    id: 'risograph-print', name: 'Risograph Print', category: 'new',
+    mood: 'Retro print, Handmade, Art poster',
+    moodKo: '레트로 프린트, 핸드메이드, 아트 포스터',
+    bg: '#F7F2E8', bgSec: '#EDE8DC', text: '#1a1a1a', textSec: '#555',
+    accent: '#E8344A', accentSoft: 'rgba(232,52,74,0.1)',
+    fontDisplay: "'Bebas Neue', sans-serif", fontBody: "'Space Mono', monospace",
+    fontLabel: 'Bebas Neue + Space Mono',
+    sig: '3-color circle overlap with multiply blend, ghost offset title',
+    risoColors: ['#E8344A','#0D5C9E','#F5D020']
+  },
+  {
+    id: 'cyberpunk-outline', name: 'Cyberpunk Outline', category: 'new',
+    mood: 'Hacker, Wireframe, Tech blueprint',
+    moodKo: '해커, 와이어프레임, 기술 청사진',
+    bg: '#0D0D0D', bgSec: '#111', text: '#00FFC8', textSec: 'rgba(0,255,200,0.5)',
+    accent: '#00FFC8', accentSoft: 'rgba(0,255,200,0.08)',
+    fontDisplay: "'Bebas Neue', sans-serif", fontBody: "'Space Mono', monospace",
+    fontLabel: 'Bebas Neue + Space Mono',
+    sig: 'Stroke-only text, 4-corner brackets, dot grid background'
+  }
+];
+
+function renderCard(p) {
+  const isLightBg = isLight(p.bg);
+  const previewText = isLightBg ? p.text : p.text;
+  const previewSub = isLightBg ? p.textSec : p.textSec;
+
+  // Build signature decoration
+  let sigDeco = '';
+  if (p.id === 'gradient-mesh' && p.meshColors) {
+    sigDeco = p.meshColors.map((c, i) =>
+      `<div style="position:absolute;width:120px;height:120px;border-radius:50%;background:${c};opacity:0.4;filter:blur(30px);top:${20+i*30}px;right:${-20+i*25}px;"></div>`
+    ).join('');
+  } else if (p.id === 'glassmorphism') {
+    sigDeco = `
+      <div style="position:absolute;width:140px;height:140px;border-radius:50%;background:rgba(0,212,255,0.3);filter:blur(40px);top:-30px;right:-30px;"></div>
+      <div style="position:absolute;width:100px;height:100px;border-radius:50%;background:rgba(168,85,247,0.3);filter:blur(30px);bottom:-20px;left:20px;"></div>
+      <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:70%;height:50%;border-radius:12px;backdrop-filter:blur(12px);background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);"></div>`;
+  } else if (p.id === 'risograph-print' && p.risoColors) {
+    sigDeco = p.risoColors.map((c, i) =>
+      `<div style="position:absolute;width:70px;height:70px;border-radius:50%;background:${c};mix-blend-mode:multiply;opacity:0.6;top:${60+i*20}px;right:${20+i*22}px;"></div>`
+    ).join('');
+  } else if (p.id === 'neo-brutalism') {
+    sigDeco = `<div style="position:absolute;top:30px;right:20px;width:80px;height:50px;background:#fff;border:4px solid #000;box-shadow:6px 6px 0 #000;border-radius:0;"></div>`;
+  } else if (p.id === 'cyberpunk-outline') {
+    sigDeco = `
+      <div style="position:absolute;top:12px;left:12px;width:20px;height:20px;border-top:2px solid ${p.accent};border-left:2px solid ${p.accent};opacity:0.5;"></div>
+      <div style="position:absolute;top:12px;right:12px;width:20px;height:20px;border-top:2px solid ${p.accent};border-right:2px solid ${p.accent};opacity:0.5;"></div>
+      <div style="position:absolute;bottom:12px;left:12px;width:20px;height:20px;border-bottom:2px solid ${p.accent};border-left:2px solid ${p.accent};opacity:0.5;"></div>
+      <div style="position:absolute;bottom:12px;right:12px;width:20px;height:20px;border-bottom:2px solid ${p.accent};border-right:2px solid ${p.accent};opacity:0.5;"></div>
+      <div style="position:absolute;inset:0;background:radial-gradient(circle 1px, rgba(0,255,200,0.15) 1px, transparent 1px);background-size:16px 16px;opacity:0.3;"></div>`;
+  } else if (p.id === 'duotone-split') {
+    sigDeco = `<div style="position:absolute;top:0;right:0;width:50%;height:100%;background:${p.accent};"></div>
+      <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:2px;height:100%;background:rgba(255,255,255,0.3);"></div>`;
+  } else if (p.id === 'dark-botanical') {
+    sigDeco = `
+      <div style="position:absolute;width:100px;height:100px;border-radius:50%;background:rgba(212,165,116,0.15);filter:blur(25px);top:20px;right:10px;"></div>
+      <div style="position:absolute;width:70px;height:70px;border-radius:50%;background:rgba(232,180,184,0.12);filter:blur(20px);bottom:40px;right:60px;"></div>`;
+  } else if (p.id === 'terminal-green') {
+    sigDeco = `<div style="position:absolute;inset:0;background:repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.06) 2px, rgba(0,0,0,0.06) 4px);pointer-events:none;"></div>`;
+  } else if (p.id === 'neon-cyber') {
+    sigDeco = `<div style="position:absolute;width:120px;height:120px;border-radius:50%;background:rgba(0,255,204,0.12);filter:blur(30px);top:-20px;right:20px;"></div>`;
+  } else if (p.id === 'dark-academia') {
+    sigDeco = `<div style="position:absolute;inset:16px;border:1px solid rgba(201,168,76,0.2);pointer-events:none;"></div>
+      <div style="position:absolute;inset:22px;border:1px solid rgba(201,168,76,0.1);pointer-events:none;"></div>`;
+  } else if (p.id === 'notebook-tabs') {
+    sigDeco = `
+      <div style="position:absolute;right:0;top:15%;width:28px;height:18%;background:#98d4bb;border-radius:4px 0 0 4px;"></div>
+      <div style="position:absolute;right:0;top:38%;width:28px;height:18%;background:#c7b8ea;border-radius:4px 0 0 4px;"></div>
+      <div style="position:absolute;right:0;top:61%;width:28px;height:18%;background:#f4b8c5;border-radius:4px 0 0 4px;"></div>`;
+  } else if (p.id === 'swiss-modern') {
+    sigDeco = `
+      <div style="position:absolute;top:20px;right:20px;width:50px;height:50px;border:2px solid #ff3300;border-radius:50%;"></div>
+      <div style="position:absolute;bottom:30px;right:50px;width:30px;height:30px;background:#ff3300;"></div>`;
+  } else if (p.id === 'bento-grid') {
+    sigDeco = `
+      <div style="position:absolute;top:20px;right:20px;display:grid;grid-template-columns:1fr 1fr;gap:6px;width:80px;">
+        <div style="background:#1E293B;border-radius:8px;height:35px;grid-column:span 2;"></div>
+        <div style="background:#FFD60A;border-radius:8px;height:25px;"></div>
+        <div style="background:#14B8A6;border-radius:8px;height:25px;"></div>
+      </div>`;
+  } else if (p.id === 'bold-signal') {
+    sigDeco = `<div style="position:absolute;top:20px;right:20px;padding:4px 12px;background:${p.accent};color:#fff;font-size:11px;font-weight:700;font-family:'Space Grotesk',sans-serif;">01</div>`;
+  } else if (p.id === 'electric-studio') {
+    sigDeco = `<div style="position:absolute;top:0;right:60px;width:4px;height:100%;background:${p.accent};"></div>`;
+  } else if (p.id === 'creative-voltage') {
+    sigDeco = `<div style="position:absolute;top:15px;right:15px;padding:3px 10px;background:${p.accent};color:#000;font-size:10px;font-weight:700;border-radius:20px;font-family:'Syne',sans-serif;">NEON</div>`;
+  } else if (p.id === 'pastel-geometry') {
+    const pillColors = ['#f0b4d4','#a8d4c4','#5a7c6a','#9b8dc4'];
+    const heights = [20,35,50,35];
+    sigDeco = pillColors.map((c,i) =>
+      `<div style="position:absolute;right:${12}px;top:${40+i*55}px;width:12px;height:${heights[i]}px;background:${c};border-radius:6px;opacity:0.7;"></div>`
+    ).join('');
+  } else if (p.id === 'split-pastel') {
+    sigDeco = `<div style="position:absolute;top:0;right:0;width:50%;height:100%;background:${p.bgSec};"></div>`;
+  } else if (p.id === 'vintage-editorial') {
+    sigDeco = `
+      <div style="position:absolute;top:25px;right:25px;width:45px;height:45px;border:2px solid ${p.text};border-radius:50%;opacity:0.2;"></div>
+      <div style="position:absolute;bottom:30px;right:40px;width:40px;height:2px;background:${p.text};opacity:0.15;"></div>
+      <div style="position:absolute;bottom:45px;right:55px;width:5px;height:5px;background:${p.text};border-radius:50%;opacity:0.2;"></div>`;
+  } else if (p.id === 'paper-and-ink') {
+    sigDeco = `<div style="position:absolute;top:18px;left:2rem;font-family:'Cormorant Garamond',serif;font-size:48px;color:${p.accent};opacity:0.2;line-height:1;">A</div>`;
+  }
+
+  // Preview background - handle special cases
+  let previewBg = `background:${p.bg};`;
+  if (p.id === 'gradient-mesh') {
+    previewBg = `background: ${p.bg}; background-image: radial-gradient(at 20% 80%, #FF6EC7 0%, transparent 50%), radial-gradient(at 80% 20%, #7B61FF 0%, transparent 50%), radial-gradient(at 50% 50%, #00D4FF 0%, transparent 50%);`;
+  } else if (p.id === 'glassmorphism') {
+    previewBg = `background: linear-gradient(135deg, #1A1A4E 0%, #6B21A8 50%, #1E3A5F 100%);`;
+  } else if (p.id === 'notebook-tabs') {
+    previewBg = `background:${p.bgSec};`;
+  }
+
+  // Title style overrides
+  let titleStyle = `color:${previewText}; font-family:${p.fontDisplay};`;
+  if (p.id === 'cyberpunk-outline') {
+    titleStyle += `-webkit-text-stroke:1.5px ${p.accent}; color:transparent;`;
+  } else if (p.id === 'dark-academia') {
+    titleStyle += `font-style:italic;`;
+  } else if (p.id === 'duotone-split') {
+    titleStyle += `position:relative; z-index:1;`;
+  }
+
+  return `
+    <article class="preset-card" data-category="${p.category}">
+      <div class="preview" style="${previewBg}">
+        ${sigDeco}
+        <div class="title-text" style="${titleStyle}">${p.name}</div>
+        <div class="subtitle-text" style="color:${previewSub}; font-family:${p.fontBody}; position:relative; z-index:1;">${p.moodKo}</div>
+        <div class="accent-bar" style="background:${p.accent};"></div>
+      </div>
+      <div class="card-info">
+        <div class="card-name">${p.name}</div>
+        <div class="card-mood">${p.mood}</div>
+        <div class="card-tags">
+          <span class="tag tag-${p.category}">${p.category === 'new' ? 'extended' : p.category}</span>
+        </div>
+        <div class="palette-row">
+          <div class="swatch" style="background:${p.bg};" title="Background"></div>
+          <div class="swatch" style="background:${p.accent};" title="Accent"></div>
+          <div class="swatch" style="background:${p.text};" title="Text"></div>
+          <div class="swatch" style="background:${p.textSec};" title="Secondary text"></div>
+          <span class="font-label">${p.fontLabel}</span>
+        </div>
+      </div>
+    </article>`;
+}
+
+function isLight(hex) {
+  const c = hex.replace('#','');
+  if (c.length < 6) return false;
+  const r = parseInt(c.substr(0,2),16), g = parseInt(c.substr(2,2),16), b = parseInt(c.substr(4,2),16);
+  return (r*299 + g*587 + b*114) / 1000 > 140;
+}
+
+// Render all
+const grid = document.getElementById('grid');
+grid.innerHTML = presets.map(renderCard).join('');
+
+// Filter
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const f = btn.dataset.filter;
+    document.querySelectorAll('.preset-card').forEach(card => {
+      card.style.display = (f === 'all' || card.dataset.category === f) ? '' : 'none';
+    });
+  });
+});
+</script>
+</body>
+</html>

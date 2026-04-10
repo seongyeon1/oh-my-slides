@@ -1,0 +1,13 @@
+/* Vintage Editorial — 위트, 자신감, 에디토리얼, 개성 */
+:root {
+  --bg-primary: #f5f3ee;
+  --bg-secondary: #ffffff;
+  --bg-card: #f5f3ee;
+  --text-primary: #1a1a1a;
+  --text-secondary: #555;
+  --accent: #e8d4c0;
+  --accent-soft: rgba(232,212,192,0.3);
+  --border: #1a1a1a;
+  --font-display: 'Fraunces', 'Noto Serif KR', serif;
+  --font-body: 'Work Sans', 'Pretendard', sans-serif;
+}

@@ -1,0 +1,14 @@
+/* Neon Cyber — 미래적, 테크, 자신감 */
+:root {
+  --bg-primary: #0a0f1c;
+  --bg-secondary: #111827;
+  --bg-card: rgba(0,255,204,0.05);
+  --text-primary: #e0e0e0;
+  --text-secondary: #64748b;
+  --accent: #00ffcc;
+  --accent-secondary: #ff00aa;
+  --accent-soft: rgba(0,255,204,0.1);
+  --border: rgba(0,255,204,0.15);
+  --font-display: 'Clash Display', 'Pretendard', sans-serif;
+  --font-body: 'Satoshi', 'Pretendard', sans-serif;
+}

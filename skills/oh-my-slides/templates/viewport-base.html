@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>프레젠테이션 제목</title>
+  <!-- 폰트: Google Fonts 또는 Fontshare -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=..." rel="stylesheet">
+  <style>
+    /* ===== 테마 변수 ===== */
+    :root {
+      /* 색상 */
+      --bg-primary: #0a0a0a;
+      --bg-secondary: #141414;
+      --text-primary: #f0f0f0;
+      --text-secondary: #888;
+      --accent: #3b82f6;
+      --accent-soft: rgba(59,130,246,0.15);
+      /* 타이포그래피 (clamp로 반응형) */
+      --font-display: 'Archivo Black', 'Pretendard', sans-serif;
+      --font-body: 'Space Grotesk', 'Pretendard', sans-serif;
+      --title-size: clamp(2rem, 6vw, 5rem);
+      --heading-size: clamp(1.2rem, 3vw, 2rem);
+      --body-size: clamp(0.75rem, 1.5vw, 1.125rem);
+      --small-size: clamp(0.65rem, 1.2vw, 0.9rem);
+      /* 간격 (뷰포트 상대) */
+      --slide-padding: clamp(1rem, 4vw, 4rem);
+      --content-gap: clamp(0.5rem, 2vw, 2rem);
+      /* 애니메이션 */
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+      --duration: 0.6s;
+    }
+
+    /* ===== 리셋 & 기본 ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-snap-type: y mandatory; scroll-behavior: smooth; }
+    body { background: var(--bg-primary); color: var(--text-primary);
+           font-family: var(--font-body); font-size: var(--body-size);
+           overflow-x: hidden; }
+
+    /* ===== 슬라이드 — 반드시 뷰포트 높이에 맞춤 ===== */
+    .slide {
+      width: 100vw;
+      height: 100vh; height: 100dvh; /* 모바일 동적 뷰포트 */
+      overflow: hidden; /* 슬라이드 내부 스크롤 차단 */
+      scroll-snap-align: start;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      padding: var(--slide-padding);
+      position: relative;
+    }
+    .slide-content {
+      max-width: min(90vw, 1000px);
+      width: 100%;
+      overflow: hidden;
+    }
+
+    /* ===== 애니메이션 ===== */
+    .reveal {
+      opacity: 0; transform: translateY(30px);
+      transition: opacity var(--duration) var(--ease-out-expo),
+                  transform var(--duration) var(--ease-out-expo);
+    }
+    .slide.visible .reveal { opacity: 1; transform: translateY(0); }
+    .slide.visible .reveal.d1 { transition-delay: 0.1s; }
+    .slide.visible .reveal.d2 { transition-delay: 0.2s; }
+    .slide.visible .reveal.d3 { transition-delay: 0.3s; }
+    .slide.visible .reveal.d4 { transition-delay: 0.4s; }
+    .slide.visible .reveal.d5 { transition-delay: 0.5s; }
+
+    /* 추가 애니메이션 변형 */
+    .reveal-left {
+      opacity: 0; transform: translateX(-40px);
+      transition: opacity var(--duration) ease, transform var(--duration) ease;
+    }
+    .slide.visible .reveal-left { opacity: 1; transform: translateX(0); }
+
+    .reveal-scale {
+      opacity: 0; transform: scale(0.9);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .slide.visible .reveal-scale { opacity: 1; transform: scale(1); }
+
+    /* ===== 반응형 — 높이 기반 미디어 쿼리 ===== */
+    @media (max-height: 700px) {
+      :root { --slide-padding: clamp(0.5rem, 2vw, 2rem); --content-gap: clamp(0.3rem, 1vw, 1rem); }
+    }
+    @media (max-height: 600px) {
+      .nav-dots, .shortcuts { display: none; }
+    }
+    @media (max-height: 500px) {
+      :root { --title-size: clamp(1.2rem, 4vw, 2.5rem); --heading-size: clamp(0.9rem, 2vw, 1.3rem); }
+    }
+    @media (max-width: 600px) {
+      .two-col, .metric-grid { grid-template-columns: 1fr; flex-direction: column; }
+    }
+
+    /* ===== Reduced motion ===== */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+      html { scroll-behavior: auto; }
+    }
+
+    /* ===== 이미지 제약 ===== */
+    img { max-height: min(50vh, 400px); max-width: 100%; object-fit: contain; }
+
+    /* ===== UI 요소 ===== */
+    .progress { position: fixed; top: 0; left: 0; height: 3px;
+                background: var(--accent); z-index: 100;
+                transition: width 0.3s ease; }
+    .nav-dots { position: fixed; right: 1.5rem; top: 50%;
+                transform: translateY(-50%); z-index: 100;
+                display: flex; flex-direction: column; gap: 8px; }
+    .nav-dot { width: 8px; height: 8px; border-radius: 50%;
+               background: rgba(255,255,255,0.2); cursor: pointer;
+               transition: all 0.3s ease; border: none; }
+    .nav-dot.active { background: var(--accent);
+                      box-shadow: 0 0 10px var(--accent); }
+    .shortcuts { position: fixed; bottom: 1rem; left: 1rem;
+                 color: var(--text-secondary); font-size: var(--small-size);
+                 opacity: 0.4; z-index: 100; }
+  </style>
+</head>
+<body>
+  <div class="progress" id="progress"></div>
+  <nav class="nav-dots" id="nav"></nav>
+
+  <!-- 각 슬라이드 -->
+  <section class="slide" id="slide-1">
+    <div class="slide-content">
+      <h1 class="reveal">제목</h1>
+      <p class="reveal d1">부제목</p>
+    </div>
+  </section>
+
+  <!-- ... 추가 슬라이드 ... -->
+
+  <div class="shortcuts">← → 또는 스크롤로 이동 | F: 전체화면</div>
+
+  <script>
+    // SlidePresentation 컨트롤러
+    class SlidePresentation {
+      constructor() {
+        this.slides = document.querySelectorAll('.slide');
+        this.nav = document.getElementById('nav');
+        this.progress = document.getElementById('progress');
+        this.current = 0;
+        this.init();
+      }
+      init() {
+        // 네비게이션 도트
+        this.slides.forEach((_, i) => {
+          const dot = document.createElement('button');
+          dot.className = 'nav-dot';
+          dot.setAttribute('aria-label', `Slide ${i + 1}`);
+          dot.addEventListener('click', () => this.goTo(i));
+          this.nav.appendChild(dot);
+        });
+        this.dots = document.querySelectorAll('.nav-dot');
+
+        // Intersection Observer
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              this.current = [...this.slides].indexOf(entry.target);
+              this.updateUI();
+            }
+          });
+        }, { threshold: 0.3 });
+        this.slides.forEach(s => observer.observe(s));
+
+        // 키보드
+        document.addEventListener('keydown', e => this.onKey(e));
+        // 터치/스와이프
+        let touchY = 0;
+        document.addEventListener('touchstart', e => { touchY = e.touches[0].clientY; }, { passive: true });
+        document.addEventListener('touchend', e => {
+          const dy = touchY - e.changedTouches[0].clientY;
+          if (Math.abs(dy) > 50) dy > 0 ? this.next() : this.prev();
+        });
+      }
+      goTo(i) { this.slides[i]?.scrollIntoView({ behavior: 'smooth' }); }
+      next() { this.goTo(Math.min(this.current + 1, this.slides.length - 1)); }
+      prev() { this.goTo(Math.max(this.current - 1, 0)); }
+      updateUI() {
+        this.dots.forEach((d, i) => d.classList.toggle('active', i === this.current));
+        this.progress.style.width = ((this.current + 1) / this.slides.length * 100) + '%';
+      }
+      onKey(e) {
+        if (['ArrowDown','ArrowRight',' ','PageDown'].includes(e.key)) { e.preventDefault(); this.next(); }
+        else if (['ArrowUp','ArrowLeft','PageUp'].includes(e.key)) { e.preventDefault(); this.prev(); }
+        else if (e.key === 'f' || e.key === 'F') { document.documentElement.requestFullscreen?.(); }
+      }
+    }
+    new SlidePresentation();
+  </script>
+</body>
+</html>

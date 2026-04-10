@@ -1,0 +1,13 @@
+/* Notebook Tabs — 에디토리얼, 정돈, 우아, 촉각적 */
+:root {
+  --bg-primary: #2d2d2d;
+  --bg-secondary: #f8f6f1;
+  --bg-card: #f8f6f1;
+  --text-primary: #1a1a1a;
+  --text-secondary: #666;
+  --accent: #98d4bb;
+  --border: rgba(0,0,0,0.08);
+  --font-display: 'Bodoni Moda', 'Noto Serif KR', serif;
+  --font-body: 'DM Sans', 'Pretendard', sans-serif;
+}
+/* 탭 색상: mint #98d4bb, lavender #c7b8ea, pink #f4b8c5, sky #a8d8ea, cream #ffe6a7 */

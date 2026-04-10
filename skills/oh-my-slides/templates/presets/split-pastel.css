@@ -1,0 +1,13 @@
+/* Split Pastel — 플레이풀, 모던, 친근, 크리에이티브 */
+:root {
+  --bg-primary: #f5e6dc;
+  --bg-secondary: #e4dff0;
+  --bg-card: rgba(255,255,255,0.6);
+  --text-primary: #1a1a1a;
+  --text-secondary: #555;
+  --accent: #1a1a1a;
+  --border: rgba(0,0,0,0.08);
+  --font-display: 'Outfit', 'Pretendard', sans-serif;
+  --font-body: 'Outfit', 'Pretendard', sans-serif;
+}
+/* 뱃지: mint #c8f0d8, yellow #f0f0c8, pink #f0d4e0 */

@@ -1,0 +1,20 @@
+/* Glassmorphism — 반투명, 깊이감, 모던, 프리미엄 */
+:root {
+  --bg-primary: #1A1A4E;
+  --bg-secondary: #6B21A8;
+  --bg-tertiary: #1E3A5F;
+  --bg-card: rgba(255,255,255,0.12);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255,255,255,0.7);
+  --accent: #00D4FF;
+  --accent-secondary: #A855F7;
+  --accent-soft: rgba(0,212,255,0.15);
+  --border: rgba(255,255,255,0.2);
+  --glass-blur: 20px;
+  --glass-bg: rgba(255,255,255,0.12);
+  --glass-border: rgba(255,255,255,0.2);
+  --glow-cyan: rgba(0,212,255,0.3);
+  --glow-purple: rgba(168,85,247,0.3);
+  --font-display: 'Inter', 'Pretendard', sans-serif;
+  --font-body: 'Inter', 'Pretendard', sans-serif;
+}

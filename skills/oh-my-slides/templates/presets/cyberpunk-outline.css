@@ -1,0 +1,18 @@
+/* Cyberpunk Outline — 해커, 와이어프레임, 기술 청사진 */
+:root {
+  --bg-primary: #0D0D0D;
+  --bg-secondary: #111111;
+  --bg-card: transparent;
+  --text-primary: #00FFC8;
+  --text-secondary: rgba(0,255,200,0.5);
+  --accent: #00FFC8;
+  --accent-secondary: #FF00AA;
+  --accent-soft: rgba(0,255,200,0.08);
+  --border: rgba(0,255,200,0.3);
+  --dot-grid-color: rgba(0,255,200,0.15);
+  --dot-grid-size: 16px;
+  --stroke-width: 2px;
+  --bracket-color: rgba(0,255,200,0.3);
+  --font-display: 'Bebas Neue', 'Pretendard', sans-serif;
+  --font-body: 'Space Mono', 'Pretendard', monospace;
+}

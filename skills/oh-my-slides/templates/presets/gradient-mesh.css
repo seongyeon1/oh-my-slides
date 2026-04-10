@@ -1,0 +1,19 @@
+/* Gradient Mesh — 아티스틱, 컬러풀, 유동적, 임팩트 */
+:root {
+  --bg-primary: #1a1a2e;
+  --bg-gradient: radial-gradient(at 20% 80%, #FF6EC7 0%, transparent 50%),
+                 radial-gradient(at 80% 20%, #7B61FF 0%, transparent 50%),
+                 radial-gradient(at 50% 50%, #00D4FF 0%, transparent 50%),
+                 radial-gradient(at 80% 80%, #FFB347 0%, transparent 50%);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255,255,255,0.8);
+  --accent: #ffffff;
+  --accent-soft: rgba(255,255,255,0.15);
+  --border: rgba(255,255,255,0.1);
+  --mesh-pink: #FF6EC7;
+  --mesh-purple: #7B61FF;
+  --mesh-cyan: #00D4FF;
+  --mesh-orange: #FFB347;
+  --font-display: 'Bebas Neue', 'Pretendard', sans-serif;
+  --font-body: 'Outfit', 'Pretendard', sans-serif;
+}

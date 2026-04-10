@@ -1,0 +1,13 @@
+/* Creative Voltage — 에너지, 크리에이티브, 레트로-모던 */
+:root {
+  --bg-primary: #1a1a2e;
+  --bg-secondary: #0066ff;
+  --bg-card: rgba(0,102,255,0.1);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255,255,255,0.7);
+  --accent: #d4ff00;
+  --accent-soft: rgba(212,255,0,0.15);
+  --border: rgba(212,255,0,0.2);
+  --font-display: 'Syne', 'Pretendard', sans-serif;
+  --font-body: 'Space Mono', 'Pretendard', monospace;
+}

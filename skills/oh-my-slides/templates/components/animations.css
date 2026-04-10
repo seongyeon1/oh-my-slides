@@ -1,0 +1,189 @@
+/* ===== 기본 입장 애니메이션 ===== */
+
+/* Fade + Slide Up (가장 범용) */
+.reveal {
+  opacity: 0; transform: translateY(30px);
+  transition: opacity var(--duration) var(--ease-out-expo),
+              transform var(--duration) var(--ease-out-expo);
+}
+.slide.visible .reveal { opacity: 1; transform: translateY(0); }
+
+/* Stagger delays */
+.slide.visible .reveal.d1 { transition-delay: 0.1s; }
+.slide.visible .reveal.d2 { transition-delay: 0.2s; }
+.slide.visible .reveal.d3 { transition-delay: 0.3s; }
+.slide.visible .reveal.d4 { transition-delay: 0.4s; }
+.slide.visible .reveal.d5 { transition-delay: 0.5s; }
+
+/* Fade from Left */
+.reveal-left {
+  opacity: 0; transform: translateX(-40px);
+  transition: opacity var(--duration) ease, transform var(--duration) ease;
+}
+.slide.visible .reveal-left { opacity: 1; transform: translateX(0); }
+
+/* Scale Up */
+.reveal-scale {
+  opacity: 0; transform: scale(0.9);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.slide.visible .reveal-scale { opacity: 1; transform: scale(1); }
+
+/* Blur In */
+.reveal-blur {
+  opacity: 0; filter: blur(10px);
+  transition: opacity 0.6s ease, filter 0.6s ease;
+}
+.slide.visible .reveal-blur { opacity: 1; filter: blur(0); }
+
+/* ===== 프리셋별 특화 애니메이션 ===== */
+
+/* Glitch (Neon Cyber, Cyberpunk Outline) */
+@keyframes glitch {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(2px, -2px); }
+  60% { transform: translate(-1px, -1px); }
+  80% { transform: translate(1px, 1px); }
+}
+.reveal-glitch {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.slide.visible .reveal-glitch {
+  opacity: 1;
+  animation: glitch 0.3s ease 0.4s 1;
+}
+
+/* Neon Glow Pulse (Neon Cyber) */
+@keyframes glow-pulse {
+  0%, 100% { text-shadow: 0 0 20px rgba(var(--accent-rgb, 0,255,204), 0.5); }
+  50% { text-shadow: 0 0 40px rgba(var(--accent-rgb, 0,255,204), 0.8), 0 0 80px rgba(var(--accent-rgb, 0,255,204), 0.3); }
+}
+.anim-glow-pulse { animation: glow-pulse 3s ease-in-out infinite; }
+
+/* Hard Slam (Neo-Brutalism) */
+@keyframes slam {
+  0% { transform: translateY(-20px) rotate(-2deg); opacity: 0; }
+  60% { transform: translateY(3px) rotate(0.5deg); opacity: 1; }
+  100% { transform: translateY(0) rotate(0); opacity: 1; }
+}
+.reveal-slam {
+  opacity: 0;
+  transition: none;
+}
+.slide.visible .reveal-slam {
+  animation: slam 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.slide.visible .reveal-slam.d1 { animation-delay: 0.1s; }
+.slide.visible .reveal-slam.d2 { animation-delay: 0.2s; }
+.slide.visible .reveal-slam.d3 { animation-delay: 0.3s; }
+
+/* Glass Float (Glassmorphism) */
+@keyframes glass-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.anim-glass-float { animation: glass-float 4s ease-in-out infinite; }
+
+/* Blob Drift (Glassmorphism, Dark Botanical) */
+@keyframes blob-drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(10px, -10px) scale(1.05); }
+  66% { transform: translate(-5px, 5px) scale(0.95); }
+}
+.anim-blob-drift { animation: blob-drift 8s ease-in-out infinite; }
+
+/* Typewriter (Terminal Green) */
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+@keyframes blink-caret {
+  0%, 100% { border-right-color: transparent; }
+  50% { border-right-color: var(--accent, #39d353); }
+}
+.anim-typewriter {
+  overflow: hidden; white-space: nowrap;
+  border-right: 2px solid var(--accent, #39d353);
+  animation: typewriter 2s steps(30) forwards, blink-caret 0.8s step-end infinite;
+}
+
+/* Mesh Shift (Gradient Mesh) */
+@keyframes mesh-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+.anim-mesh-shift { animation: mesh-shift 12s ease-in-out infinite; background-size: 200% 200%; }
+
+/* Riso Offset Wobble (Risograph Print) */
+@keyframes riso-wobble {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(2px, -1px) rotate(0.5deg); }
+  75% { transform: translate(-1px, 1px) rotate(-0.3deg); }
+}
+.anim-riso-wobble { animation: riso-wobble 5s ease-in-out infinite; }
+
+/* Grid Reveal (Bento Grid) */
+.reveal-grid-cell {
+  opacity: 0; transform: scale(0.85);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.slide.visible .reveal-grid-cell { opacity: 1; transform: scale(1); }
+.slide.visible .reveal-grid-cell:nth-child(1) { transition-delay: 0.05s; }
+.slide.visible .reveal-grid-cell:nth-child(2) { transition-delay: 0.1s; }
+.slide.visible .reveal-grid-cell:nth-child(3) { transition-delay: 0.15s; }
+.slide.visible .reveal-grid-cell:nth-child(4) { transition-delay: 0.2s; }
+.slide.visible .reveal-grid-cell:nth-child(5) { transition-delay: 0.25s; }
+
+/* Curtain Split (Duotone Split) */
+@keyframes curtain-left {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+@keyframes curtain-right {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+.reveal-curtain-left { animation: curtain-left 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+.reveal-curtain-right { animation: curtain-right 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+
+/* Page Turn (Dark Academia) */
+@keyframes page-turn {
+  from { transform: perspective(800px) rotateY(-8deg); opacity: 0; }
+  to { transform: perspective(800px) rotateY(0); opacity: 1; }
+}
+.reveal-page {
+  opacity: 0;
+  transition: none;
+}
+.slide.visible .reveal-page {
+  animation: page-turn 0.8s ease forwards;
+}
+
+/* Stroke Draw (Cyberpunk Outline) */
+@keyframes stroke-draw {
+  from { -webkit-text-stroke-color: transparent; opacity: 0; }
+  to { -webkit-text-stroke-color: var(--accent, #00FFC8); opacity: 1; }
+}
+.reveal-stroke {
+  opacity: 0;
+  transition: none;
+}
+.slide.visible .reveal-stroke {
+  animation: stroke-draw 0.6s ease forwards;
+}
+
+/* ===== reduced-motion 지원 ===== */
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal-left, .reveal-scale, .reveal-blur,
+  .reveal-glitch, .reveal-slam, .reveal-grid-cell,
+  .reveal-page, .reveal-stroke {
+    opacity: 1; transform: none; filter: none;
+    transition: none; animation: none;
+  }
+  .anim-glow-pulse, .anim-glass-float, .anim-blob-drift,
+  .anim-typewriter, .anim-mesh-shift, .anim-riso-wobble {
+    animation: none;
+  }
+}

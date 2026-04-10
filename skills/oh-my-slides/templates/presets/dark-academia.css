@@ -1,0 +1,15 @@
+/* Dark Academia — 학구적, 빈티지 다크, 고전적, 우아 */
+:root {
+  --bg-primary: #1A1208;
+  --bg-secondary: #2A1F10;
+  --bg-card: rgba(201,168,76,0.08);
+  --text-primary: #E8DCC8;
+  --text-secondary: #9A8B6F;
+  --accent: #C9A84C;
+  --accent-soft: rgba(201,168,76,0.12);
+  --border: rgba(201,168,76,0.25);
+  --border-inner: rgba(201,168,76,0.12);
+  --frame-offset: 8px;
+  --font-display: 'Playfair Display', 'Noto Serif KR', serif;
+  --font-body: 'EB Garamond', 'Noto Serif KR', serif;
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>슬라이드 제목</title>
+<!-- Tailwind CSS -->
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<!-- Font Awesome -->
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+<style>
+  body { margin: 0; padding: 0; background-color: #f3f4f6; overflow: hidden;
+         font-family: 'Noto Sans KR', sans-serif; }
+  .slide-container { width: 1280px; height: 720px; background-color: white;
+                     position: relative; display: flex; flex-direction: column; overflow: hidden; }
+
+  /* 테마 컬러 (슬라이드별 변경) */
+  .text-primary { color: #047857; }
+  .bg-primary { background-color: #047857; }
+  .border-primary { border-color: #047857; }
+
+  /* 추가 커스텀 CSS 여기에 */
+</style>
+</head>
+<body>
+<div class="slide-container shadow-2xl mx-auto">
+
+  <!-- ===== Header ===== -->
+  <div class="px-12 py-8 border-b border-gray-100 flex justify-between items-end bg-white z-10">
+    <div>
+      <p class="text-sm text-gray-500 font-bold tracking-wider uppercase mb-1">카테고리</p>
+      <h2 class="text-4xl font-bold text-gray-900 font-serif">슬라이드 제목</h2>
+    </div>
+    <div class="text-right">
+      <p class="text-xl text-gray-600 font-light">한줄 부제목</p>
+    </div>
+  </div>
+
+  <!-- ===== Main Content ===== -->
+  <div class="flex flex-1 px-12 py-8 gap-8 bg-gray-50 bg-opacity-30 items-center">
+    <!-- 콘텐츠 영역 -->
+  </div>
+
+  <!-- ===== Footer ===== -->
+  <div class="px-12 py-4 bg-white border-t border-gray-100 flex justify-between items-center text-xs text-gray-400">
+    <p>논문/발표 제목</p>
+    <span class="font-mono">Page N</span>
+  </div>
+
+</div>
+</body>
+</html>

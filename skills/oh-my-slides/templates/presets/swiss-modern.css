@@ -1,0 +1,13 @@
+/* Swiss Modern — 클린, 정밀, 바우하우스 */
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f5f5;
+  --bg-card: #f5f5f5;
+  --text-primary: #000000;
+  --text-secondary: #666;
+  --accent: #ff3300;
+  --accent-soft: rgba(255,51,0,0.08);
+  --border: #000000;
+  --font-display: 'Archivo', 'Pretendard', sans-serif;
+  --font-body: 'Nunito', 'Pretendard', sans-serif;
+}

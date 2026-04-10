@@ -1,0 +1,21 @@
+/* Custom: modern-studio — 화이트/블랙 모던 스튜디오 포트폴리오 */
+/* @asset-dir: assets/custom-modern-studio */
+:root {
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F5F5F0;
+  --bg-card: #FFFFFF;
+  --bg-dark: #1A1A1A;
+  --text-primary: #1A1A1A;
+  --text-secondary: rgba(26,26,26,0.55);
+  --text-on-dark: #FFFFFF;
+  --text-secondary-dark: rgba(255,255,255,0.6);
+  --accent: #1A1A1A;
+  --accent-soft: rgba(26,26,26,0.05);
+  --border: rgba(0,0,0,0.1);
+  --card-radius: 0px;
+  --shadow-soft: 0 1px 3px rgba(0,0,0,0.06);
+  --font-display: 'Inter', 'Pretendard', sans-serif;
+  --font-body: 'Inter', 'Pretendard', sans-serif;
+  --font-weight-display: 700;
+  --font-weight-body: 400;
+}

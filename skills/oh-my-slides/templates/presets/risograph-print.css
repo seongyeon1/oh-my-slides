@@ -1,0 +1,18 @@
+/* Risograph Print — 레트로 프린트, 핸드메이드, 아트 포스터 */
+:root {
+  --bg-primary: #F7F2E8;
+  --bg-secondary: #EDE8DC;
+  --bg-card: #ffffff;
+  --text-primary: #1a1a1a;
+  --text-secondary: #555555;
+  --accent: #E8344A;
+  --accent-soft: rgba(232,52,74,0.1);
+  --border: rgba(0,0,0,0.1);
+  --riso-red: #E8344A;
+  --riso-blue: #0D5C9E;
+  --riso-yellow: #F5D020;
+  --ghost-opacity: 0.08;
+  --ghost-offset: 4px;
+  --font-display: 'Bebas Neue', 'Pretendard', sans-serif;
+  --font-body: 'Space Mono', 'Pretendard', monospace;
+}

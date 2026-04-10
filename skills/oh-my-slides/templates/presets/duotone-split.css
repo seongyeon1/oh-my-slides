@@ -1,0 +1,16 @@
+/* Duotone Split — 대비, 포커스, 그래픽, 강렬 */
+:root {
+  --bg-primary: #1A1A2E;
+  --color-left: #FF4500;
+  --color-right: #1A1A2E;
+  --text-primary: #ffffff;
+  --text-on-left: #ffffff;
+  --text-on-right: #ffffff;
+  --accent: #FF4500;
+  --accent-soft: rgba(255,69,0,0.15);
+  --border: rgba(255,255,255,0.1);
+  --divider: rgba(255,255,255,0.3);
+  --divider-width: 2px;
+  --font-display: 'Bebas Neue', 'Pretendard', sans-serif;
+  --font-body: 'Space Mono', 'Pretendard', monospace;
+}

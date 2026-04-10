@@ -1,0 +1,13 @@
+/* Paper & Ink — 에디토리얼, 문학적, 사려깊음 */
+:root {
+  --bg-primary: #faf9f7;
+  --bg-secondary: #ffffff;
+  --bg-card: #f5f3ee;
+  --text-primary: #1a1a1a;
+  --text-secondary: #666;
+  --accent: #c41e3a;
+  --accent-soft: rgba(196,30,58,0.08);
+  --border: rgba(0,0,0,0.1);
+  --font-display: 'Cormorant Garamond', 'Noto Serif KR', serif;
+  --font-body: 'Source Serif 4', 'Noto Serif KR', serif;
+}

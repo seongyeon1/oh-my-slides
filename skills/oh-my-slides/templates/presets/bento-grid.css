@@ -1,0 +1,19 @@
+/* Bento Grid — 모던, 정돈, Apple 스타일, 매끈 */
+:root {
+  --bg-primary: #F8F8F2;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --text-primary: #1a1a1a;
+  --text-secondary: #666666;
+  --accent: #FFD60A;
+  --accent-secondary: #FF6B6B;
+  --accent-soft: rgba(255,214,10,0.12);
+  --border: rgba(0,0,0,0.06);
+  --cell-navy: #1E293B;
+  --cell-coral: #FF6B6B;
+  --cell-teal: #14B8A6;
+  --cell-radius: 16px;
+  --shadow-soft: 0 1px 3px rgba(0,0,0,0.04);
+  --font-display: 'SF Pro Display', 'Inter', 'Pretendard', sans-serif;
+  --font-body: 'SF Pro Text', 'Inter', 'Pretendard', sans-serif;
+}

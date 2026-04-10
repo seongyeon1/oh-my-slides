@@ -1,0 +1,31 @@
+<!-- 패턴 3: 테이블 + 메트릭 -->
+<div class="flex flex-1 px-12 py-6 gap-8 bg-gray-50 bg-opacity-30 flex-col">
+  <!-- 테이블 -->
+  <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+    <table class="w-full text-sm">
+      <thead>
+        <tr class="bg-primary text-white">
+          <th class="px-4 py-3 text-left font-medium">Method</th>
+          <th class="px-4 py-3 text-right font-medium">Latency (μs)</th>
+          <th class="px-4 py-3 text-right font-medium">Speedup</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-b border-gray-100">
+          <td class="px-4 py-3 text-gray-800 font-medium">SEISMIC</td>
+          <td class="px-4 py-3 text-right text-primary font-bold">303</td>
+          <td class="px-4 py-3 text-right"><span class="bg-green-100 text-green-800 px-2 py-0.5 rounded-full text-xs font-bold">1x (baseline)</span></td>
+        </tr>
+        <!-- 추가 행 -->
+      </tbody>
+    </table>
+  </div>
+  <!-- 메트릭 카드 -->
+  <div class="grid grid-cols-4 gap-4">
+    <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 text-center">
+      <p class="text-3xl font-bold text-primary">105x</p>
+      <p class="text-xs text-gray-500 mt-1">vs Ioqp</p>
+    </div>
+    <!-- 추가 메트릭 -->
+  </div>
+</div>
