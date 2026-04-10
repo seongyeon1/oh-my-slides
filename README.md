@@ -53,16 +53,7 @@ Removes plugin registration from Claude Code. Your source files remain untouched
 
 ### 5-Phase Workflow
 
-```
- Phase 0       Phase 1        Phase 2         Phase 3        Phase 4       Phase 5
- ─────────    ──────────    ────────────    ────────────    ──────────    ──────────
- Design        Content       Style           Diagrams       Generate      Validate
- Source        Collection    Preview         (optional)     HTML/PPTX     & Deliver
-
- Preset or     Topic,        3 live          Excalidraw     Single HTML   Screenshot
- custom PPTX   purpose,      previews →      flowcharts,    with CSS      verification,
- import?       slide count   pick visually   architecture   + animations  PPTX export
-```
+![5-Phase Workflow](docs/workflow.gif)
 
 **Phase 0** asks you two questions: which design source (preset or custom .pptx import) and output format (Viewport HTML or Slide Template).
 
