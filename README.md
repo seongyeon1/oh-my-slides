@@ -154,19 +154,39 @@ This reads the PPTX theme XML, extracts colors/fonts/media, maps Office fonts to
 
 Three methods available, depending on your needs:
 
-| Method | Command | Editable? | Fidelity |
-|--------|---------|-----------|----------|
+| Method | Script | Editable? | Fidelity |
+|--------|--------|-----------|----------|
 | **Viewport capture** | `capture-viewport.js` | No | Pixel-perfect |
 | **Slide capture** | `capture-and-build.js` | No | Pixel-perfect |
-| **html2pptx** | Native PPTX via PptxGenJS | Yes | Limited |
+| **Editable PPTX** | `build-editable-pptx.js` | **Yes** | Web-safe fonts only |
 
 ```bash
-# Convert a viewport HTML presentation to PPTX
+# Image-based (pixel-perfect, not editable) — single viewport HTML → PPTX
 node skills/oh-my-slides/scripts/capture-viewport.js presentation.html output.pptx
-
-# Adjust viewport size for optimal capture
 node skills/oh-my-slides/scripts/capture-viewport.js presentation.html output.pptx --width=1200 --height=675
+
+# Editable PPTX — PPTX-ready HTML directory → editable .pptx
+# Iterates slide*.html files and runs html2pptx on each, producing real text/shape/table objects
+node skills/oh-my-slides/scripts/build-editable-pptx.js docs/workspace
+node skills/oh-my-slides/scripts/build-editable-pptx.js docs/workspace docs/output.pptx
+node skills/oh-my-slides/scripts/build-editable-pptx.js docs/workspace --pattern="slide-*.html"
 ```
+
+### Editable PPTX requirements
+
+Editable mode preserves text/shapes/tables as native PowerPoint objects, so the input HTML
+must follow PPTX constraints (the rich viewport HTML used for browser presentation won't
+work as-is — author a separate PPTX-ready HTML set):
+
+- **Body size matches layout**: 16:9 → `width: 960px; height: 540px` (= 720pt × 405pt)
+- **Web-safe fonts only**: Arial, Verdana, Georgia, Courier New
+- **No CSS gradients, no animations** (use solid colors; gradients → pre-rendered PNG overlay)
+- **All text inside semantic tags**: `<p>`, `<h1>`–`<h6>`, `<ul>`, `<ol>`
+- Content must fit inside body (no overflow)
+
+See [`skills/oh-my-slides/SKILL.md`](skills/oh-my-slides/SKILL.md) ("Phase 4-B 방식 A") and
+[`references/build-utilities.md`](skills/oh-my-slides/references/build-utilities.md) for
+templates, native table helpers, and gradient-header workarounds.
 
 ---
 
@@ -182,7 +202,8 @@ All scripts are in `skills/oh-my-slides/scripts/`:
 | `render-preview.js` | All slides → single preview grid image (for quick review) |
 | `render-all.js` | Each slide → individual PNG files |
 | `create-gradient.js` | Generate gradient PNG via Sharp (for PPTX header overlays) |
-| `html2pptx.js` | Convert HTML slide to editable PPTX elements (text, shapes, images) via Playwright |
+| `html2pptx.js` | Library: convert a single HTML slide → editable pptxgenjs slide (text, shapes, images) |
+| `build-editable-pptx.js` | CLI: PPTX-ready HTML directory → editable multi-slide `.pptx` (uses `html2pptx.js`) |
 
 ---
 
@@ -205,7 +226,7 @@ oh-my-slides/
 │       │   ├── presets/           # 20 CSS preset files
 │       │   ├── layouts/           # 8 slide layout patterns
 │       │   └── components/        # Reusable CSS modules
-│       └── scripts/               # Node.js automation (6 scripts)
+│       └── scripts/               # Node.js automation (8 scripts)
 ├── gallery.html                   # Interactive preset gallery
 ├── install.sh                     # One-command installer
 ├── uninstall.sh                   # Clean uninstaller
