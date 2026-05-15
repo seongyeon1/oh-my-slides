@@ -5,13 +5,20 @@ handles well: title hero, KPI cards, bar chart from styled divs, two-column
 comparison, multi-row data table from a div grid, and a numbered conclusion
 with a CTA bar.
 
-## Build
+## Pre-built output
+
+The committed [`ai-adoption-report.pptx`](ai-adoption-report.pptx) (≈179 KB) is the
+PPTX produced by the steps below. Download and open in PowerPoint / Keynote /
+Google Slides to click around the bars, table cells, and text runs — everything
+is a native editable object, not flattened pixels.
+
+## Build it yourself
 
 ```bash
 node ../../skills/oh-my-slides/scripts/build-editable-pptx.js . ./ai-adoption-report.pptx
 ```
 
-Expected: 6 slides convert without errors → `ai-adoption-report.pptx` (~180 KB).
+Expected: 6 slides convert without errors → `Total: 6 slide(s) · 179.0 KB`.
 
 ## What's exercised
 
