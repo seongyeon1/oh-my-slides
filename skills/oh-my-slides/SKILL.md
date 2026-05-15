@@ -151,6 +151,71 @@ node .claude/skills/excalidraw/scripts/export-png.js \
 
 커스텀 다이어그램은 Excalidraw JSON 직접 생성. `.claude/skills/excalidraw/` 참조.
 
+### Phase 3.5: AI 이미지 생성 — oh-my-images (선택 사항)
+
+슬라이드에 AI 생성 이미지가 필요한 경우 사용. 상세 가이드: [oh-my-images-guide.md](references/oh-my-images-guide.md)
+
+#### Step 1: 슬라이드 분석 및 이미지 제안
+
+Phase 1 콘텐츠를 분석하여 AI 생성 이미지가 효과적인 슬라이드를 식별:
+- 히어로/타이틀 슬라이드: 주제를 상징하는 배경 이미지
+- 개념 설명 슬라이드: 추상적 개념의 시각화
+- 비교/대조 슬라이드: 대비를 보여주는 이미지
+- 결론/비전 슬라이드: 미래 지향적 이미지
+
+**AskUserQuestion으로 제안:**
+> **AI 이미지 생성 제안 (oh-my-images 🖼️)**
+>
+> 다음 슬라이드에 AI 생성 이미지를 추천합니다:
+> 1. 슬라이드 1 (타이틀): "주제를 상징하는 히어로 이미지" → hero-bg.png
+> 2. 슬라이드 5 (개념): "클라우드 아키텍처 시각화" → cloud-arch.png
+>
+> - 추가/제거/수정할 이미지가 있나요?
+> - 프로바이더: Nanobanana/Google Imagen (기본) / OpenAI / Stability AI
+> - **환경변수 필요**: `GOOGLE_API_KEY`, `OPENAI_API_KEY`, 또는 `STABILITY_API_KEY`
+
+**API 키가 없으면 이 Phase를 건너뛴다** (사용자에게 안내 후 Phase 4로 진행).
+
+#### Step 2: 매니페스트 생성 및 이미지 생성
+
+승인된 이미지 목록으로 `docs/workspace/image-manifest.json` 생성:
+```json
+[
+  { "filename": "hero-bg.png", "prompt": "A dramatic wide-angle scene of...", "style": "dark-botanical" },
+  { "filename": "cloud-arch.png", "prompt": "Abstract cloud computing visualization..." }
+]
+```
+
+이미지 생성 실행:
+```bash
+node .claude/skills/oh-my-slides/scripts/generate-image.js docs/workspace/images/ \
+  --batch=docs/workspace/image-manifest.json \
+  --provider=nanobanana \
+  --quality=high
+```
+
+단일 이미지 재생성 (프롬프트 수정 후):
+```bash
+node .claude/skills/oh-my-slides/scripts/generate-image.js docs/workspace/images/hero-bg.png \
+  --prompt="수정된 프롬프트" \
+  --provider=nanobanana \
+  --style=dark-botanical
+```
+
+#### Step 3: 생성된 이미지 확인
+
+생성된 이미지를 Read로 확인. 부적절한 경우 프롬프트를 수정하여 단일 모드로 재생성.
+
+#### HTML에서 참조 (Phase 4에서 사용)
+
+```html
+<!-- docs/ 기준 상대 경로 -->
+<img src="workspace/images/hero-bg.png" alt="Hero background">
+
+<!-- 배경 이미지로 사용 -->
+<div class="slide" style="background-image: url('workspace/images/hero-bg.png'); background-size: cover;">
+```
+
 ### Phase 4: HTML 프레젠테이션 생성
 
 #### 단일 HTML 파일 아키텍처
@@ -316,6 +381,7 @@ PPTX: PowerPoint/Keynote/Google Slides에서 편집 가능
 - [ ] Phase 1: AskUserQuestion으로 콘텐츠 수집
 - [ ] Phase 2: 3가지 스타일 프리뷰 생성 → 사용자 선택
 - [ ] Phase 3: 다이어그램 필요 슬라이드 식별 → Excalidraw 생성
+- [ ] Phase 3.5: (선택) AI 이미지 제안 → 사용자 승인 → oh-my-images 생성
 - [ ] Phase 4: HTML 프레젠테이션 생성 (viewport fitting, 애니메이션, 반응형)
 - [ ] Phase 4-B: PPTX 생성 (요청 시, 네이티브 테이블 사용)
 - [ ] Phase 5: 스크린샷 검증 → 전달
@@ -339,4 +405,6 @@ PPTX: PowerPoint/Keynote/Google Slides에서 편집 가능
   - `create-gradient.js` — Sharp로 그라데이션 PNG 생성
   - `import-pptx-theme.js` — PPTX 파일에서 테마(색상, 폰트, 미디어) 추출 → 커스텀 프리셋 CSS 생성
   - `html2pptx.js` — HTML 슬라이드 → PptxGenJS 슬라이드 변환 (편집 가능 PPTX 생성용)
+  - `generate-image.js` — oh-my-images AI 이미지 생성 (단일/배치 모드, Nanobanana/OpenAI/Stability AI 지원)
+- **[oh-my-images-guide.md](references/oh-my-images-guide.md)** - AI 이미지 생성 가이드 (프로바이더 설정, 프롬프트 가이드, 스타일 매핑)
 - **Excalidraw 스킬** (선택) - 다이어그램 생성 시 필요
