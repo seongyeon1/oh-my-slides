@@ -120,7 +120,10 @@ async function main() {
 
     fs.mkdirSync(path.dirname(OUT_PPTX), { recursive: true });
     await pres.writeFile({ fileName: OUT_PPTX });
+
+    const sizeKB = (fs.statSync(OUT_PPTX).size / 1024).toFixed(1);
     console.log(`\n  Saved: ${OUT_PPTX}`);
+    console.log(`  Total: ${slideFiles.length} slide(s) · ${sizeKB} KB`);
 }
 
 main().catch(e => {

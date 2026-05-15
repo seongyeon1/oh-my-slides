@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  html, body { margin: 0; padding: 0; }
+  body {
+    width: 960px; height: 540px;
+    font-family: Arial, sans-serif;
+    background: #F8FAFC;
+    color: #0B1220;
+  }
+  .head {
+    position: absolute;
+    left: 64px; top: 56px; right: 64px;
+  }
+  p.kicker {
+    font-size: 12px; letter-spacing: 4px;
+    color: #DC2626;
+    margin: 0 0 12px 0;
+  }
+  h2 {
+    font-family: Georgia, serif;
+    font-size: 32px; font-weight: 700;
+    margin: 0;
+    color: #0B1220;
+  }
+  p.lede {
+    font-size: 14px;
+    color: #475569;
+    margin: 12px 0 0 0;
+    max-width: 600px;
+  }
+
+  /* Bar chart area */
+  .chart {
+    position: absolute;
+    left: 64px; top: 220px;
+    width: 600px; height: 260px;
+  }
+  .axis {
+    position: absolute;
+    left: 0; bottom: 30px;
+    width: 600px; height: 2px;
+    background: #0B1220;
+  }
+  .bar {
+    position: absolute;
+    bottom: 32px;
+    width: 80px;
+    background: #DC2626;
+  }
+  .bar.b1 { left: 20px;  height: 156px; }
+  .bar.b2 { left: 130px; height: 196px; background: #0B1220; }
+  .bar.b3 { left: 240px; height: 116px; }
+  .bar.b4 { left: 350px; height: 84px; }
+  .bar.b5 { left: 460px; height: 60px; background: #FACC15; }
+
+  .bar-label {
+    position: absolute;
+    bottom: 8px;
+    width: 80px;
+    text-align: center;
+  }
+  .bar-label.l1 { left: 20px; }
+  .bar-label.l2 { left: 130px; }
+  .bar-label.l3 { left: 240px; }
+  .bar-label.l4 { left: 350px; }
+  .bar-label.l5 { left: 460px; }
+  .bar-label p {
+    font-size: 11px;
+    color: #475569;
+    margin: 0;
+  }
+
+  .bar-value {
+    position: absolute;
+    width: 80px;
+    text-align: center;
+  }
+  .bar-value.v1 { left: 20px;  bottom: 192px; }
+  .bar-value.v2 { left: 130px; bottom: 232px; }
+  .bar-value.v3 { left: 240px; bottom: 152px; }
+  .bar-value.v4 { left: 350px; bottom: 120px; }
+  .bar-value.v5 { left: 460px; bottom: 96px; }
+  .bar-value p {
+    font-family: Georgia, serif;
+    font-size: 16px; font-weight: 700;
+    color: #0B1220;
+    margin: 0;
+  }
+
+  /* Side panel */
+  .side {
+    position: absolute;
+    right: 64px; top: 220px;
+    width: 200px; height: 260px;
+    background: #0B1220;
+  }
+  .side-title {
+    position: absolute;
+    left: 16px; top: 16px;
+  }
+  .side-title p {
+    font-size: 11px; letter-spacing: 3px;
+    color: #FACC15;
+    margin: 0;
+  }
+  .side-list {
+    position: absolute;
+    left: 16px; top: 50px; right: 16px;
+  }
+  .side-list ul {
+    list-style: none;
+    padding: 0; margin: 0;
+    color: #F8FAFC;
+    font-size: 12px;
+    line-height: 1.7;
+  }
+  .side-list li b { color: #FACC15; font-weight: 700; }
+
+  .footer {
+    position: absolute;
+    left: 64px; bottom: 28px;
+  }
+  .footer p {
+    font-size: 11px;
+    color: #94A3B8;
+    margin: 0;
+  }
+</style>
+</head>
+<body>
+  <div class="head">
+    <p class="kicker">SECTOR BREAKDOWN</p>
+    <h2>Production AI adoption — by sector (% of firms)</h2>
+    <p class="lede">Financial services and software lead; manufacturing and retail are accelerating but from a lower base.</p>
+  </div>
+
+  <div class="chart">
+    <div class="axis"></div>
+
+    <div class="bar b1"></div>
+    <div class="bar b2"></div>
+    <div class="bar b3"></div>
+    <div class="bar b4"></div>
+    <div class="bar b5"></div>
+
+    <div class="bar-value v1"><p>78%</p></div>
+    <div class="bar-value v2"><p>98%</p></div>
+    <div class="bar-value v3"><p>58%</p></div>
+    <div class="bar-value v4"><p>42%</p></div>
+    <div class="bar-value v5"><p>30%</p></div>
+
+    <div class="bar-label l1"><p>Finance</p></div>
+    <div class="bar-label l2"><p>Software</p></div>
+    <div class="bar-label l3"><p>Healthcare</p></div>
+    <div class="bar-label l4"><p>Manufactr.</p></div>
+    <div class="bar-label l5"><p>Retail</p></div>
+  </div>
+
+  <div class="side">
+    <div class="side-title"><p>TAKEAWAY</p></div>
+    <div class="side-list">
+      <ul>
+        <li><b>Software</b> near saturation</li>
+        <li><b>Finance</b> +18pt YoY</li>
+        <li><b>Manufacturing</b> 2.1x growth</li>
+        <li><b>Retail</b> still early days</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer"><p>Bars represent share of firms with at least one production AI workload (n=1,240; Q1 2026)</p></div>
+</body>
+</html>

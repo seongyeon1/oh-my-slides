@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  html, body { margin: 0; padding: 0; }
+  body {
+    width: 960px; height: 540px;
+    font-family: Arial, sans-serif;
+    background: #F8FAFC;
+    color: #0B1220;
+  }
+  .head {
+    position: absolute;
+    left: 64px; top: 48px; right: 64px;
+  }
+  p.kicker {
+    font-size: 12px; letter-spacing: 4px;
+    color: #DC2626;
+    margin: 0 0 8px 0;
+  }
+  h2 {
+    font-family: Georgia, serif;
+    font-size: 30px;
+    margin: 0;
+  }
+  h2 .accent { color: #DC2626; }
+
+  .col {
+    position: absolute;
+    top: 160px;
+    width: 380px; height: 320px;
+    border: 2px solid #0B1220;
+    background: #FFFFFF;
+  }
+  .col.left { left: 64px; }
+  .col.right { left: 516px; background: #0B1220; border-color: #0B1220; }
+
+  .col-head {
+    position: absolute;
+    left: 24px; top: 20px; right: 24px;
+  }
+  .col-head p.year {
+    font-family: Georgia, serif;
+    font-size: 14px; letter-spacing: 3px;
+    margin: 0 0 4px 0;
+    color: #94A3B8;
+  }
+  .col-head p.title {
+    font-family: Georgia, serif;
+    font-size: 22px; font-weight: 700;
+    margin: 0;
+    color: #0B1220;
+  }
+  .col.right .col-head p.year { color: #FACC15; }
+  .col.right .col-head p.title { color: #F8FAFC; }
+
+  .col-rule {
+    position: absolute;
+    left: 24px; right: 24px; top: 86px;
+    height: 2px;
+    background: #0B1220;
+  }
+  .col.right .col-rule { background: #FACC15; }
+
+  .col-body {
+    position: absolute;
+    left: 24px; top: 102px; right: 24px;
+  }
+  .col-body ul {
+    margin: 0; padding: 0 0 0 20px;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #0B1220;
+  }
+  .col-body li { margin-bottom: 6px; }
+  .col.right .col-body ul { color: #F8FAFC; }
+  .col-body li b { font-weight: 700; }
+  .col.left  .col-body li b { color: #DC2626; }
+  .col.right .col-body li b { color: #FACC15; }
+
+  .footer {
+    position: absolute;
+    left: 64px; bottom: 24px;
+  }
+  .footer p {
+    font-size: 11px;
+    color: #94A3B8;
+    margin: 0;
+  }
+</style>
+</head>
+<body>
+  <div class="head">
+    <p class="kicker">THEN VS NOW</p>
+    <h2>What changed since the <span class="accent">2024 baseline</span></h2>
+  </div>
+
+  <div class="col left">
+    <div class="col-head">
+      <p class="year">BASELINE</p>
+      <p class="title">2024 Q1</p>
+    </div>
+    <div class="col-rule"></div>
+    <div class="col-body">
+      <ul>
+        <li>AI as <b>pilot project</b> — 31% had any production use</li>
+        <li>Median time to prod: <b>118 days</b></li>
+        <li><b>API-only</b> inference; vendor lock-in concerns rising</li>
+        <li>Hiring bottleneck: <b>4.2 months</b> to fill ML roles</li>
+        <li>Budget centralized under <b>IT / R&amp;D</b></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="col right">
+    <div class="col-head">
+      <p class="year">TODAY</p>
+      <p class="title">2026 Q1</p>
+    </div>
+    <div class="col-rule"></div>
+    <div class="col-body">
+      <ul>
+        <li>AI as <b>core dependency</b> — 78% production-grade</li>
+        <li>Median time to prod: <b>42 days</b></li>
+        <li><b>Hybrid stack</b>: on-prem inference + frontier APIs</li>
+        <li>Hiring: <b>2.1 months</b>; internal upskilling now standard</li>
+        <li>Budget devolved to <b>line of business</b></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer"><p>Both columns: same 1,240-firm panel surveyed in both quarters</p></div>
+</body>
+</html>

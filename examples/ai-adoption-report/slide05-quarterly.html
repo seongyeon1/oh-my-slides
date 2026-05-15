@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  html, body { margin: 0; padding: 0; }
+  body {
+    width: 960px; height: 540px;
+    font-family: Arial, sans-serif;
+    background: #F8FAFC;
+    color: #0B1220;
+  }
+  .head {
+    position: absolute;
+    left: 64px; top: 48px; right: 64px;
+  }
+  p.kicker {
+    font-size: 12px; letter-spacing: 4px;
+    color: #DC2626;
+    margin: 0 0 8px 0;
+  }
+  h2 {
+    font-family: Georgia, serif;
+    font-size: 30px;
+    margin: 0;
+  }
+
+  /* Grid as table-of-divs */
+  .grid {
+    position: absolute;
+    left: 64px; top: 150px; right: 64px;
+    height: 280px;
+  }
+  .row {
+    position: absolute;
+    left: 0; right: 0;
+    height: 40px;
+    background: #FFFFFF;
+    border-bottom: 1px solid #E2E8F0;
+  }
+  .row.header { background: #0B1220; height: 44px; top: 0; }
+  .row.r1 { top: 44px;  }
+  .row.r2 { top: 84px;  background: #F1F5F9; }
+  .row.r3 { top: 124px; }
+  .row.r4 { top: 164px; background: #F1F5F9; }
+  .row.r5 { top: 204px; }
+  .row.r6 { top: 244px; background: #FACC15; }
+
+  .cell {
+    position: absolute;
+    top: 12px;
+    height: 24px;
+  }
+  .row.header .cell { top: 14px; }
+
+  /* Column positions */
+  .col-metric { left: 16px;  width: 280px; }
+  .col-q2     { left: 320px; width: 120px; text-align: right; }
+  .col-q3     { left: 460px; width: 120px; text-align: right; }
+  .col-q4     { left: 600px; width: 120px; text-align: right; }
+  .col-q1n    { left: 740px; width: 100px; text-align: right; }
+
+  .cell p {
+    font-size: 13px;
+    margin: 0;
+    color: #0B1220;
+  }
+  .row.header .cell p {
+    font-size: 11px; letter-spacing: 2px;
+    color: #FACC15;
+  }
+  .cell p.metric-name { font-weight: 700; }
+  .cell p.num {
+    font-family: Georgia, serif;
+    font-size: 14px;
+    font-weight: 700;
+  }
+  .row.r6 .cell p { color: #0B1220; font-weight: 700; }
+
+  .footer {
+    position: absolute;
+    left: 64px; bottom: 24px;
+  }
+  .footer p {
+    font-size: 11px;
+    color: #94A3B8;
+    margin: 0;
+  }
+</style>
+</head>
+<body>
+  <div class="head">
+    <p class="kicker">QUARTERLY TREND</p>
+    <h2>Five quarters of enterprise AI metrics</h2>
+  </div>
+
+  <div class="grid">
+    <div class="row header">
+      <div class="cell col-metric"><p>METRIC</p></div>
+      <div class="cell col-q2"><p>2025 Q1</p></div>
+      <div class="cell col-q3"><p>2025 Q2</p></div>
+      <div class="cell col-q4"><p>2025 Q4</p></div>
+      <div class="cell col-q1n"><p>2026 Q1</p></div>
+    </div>
+
+    <div class="row r1">
+      <div class="cell col-metric"><p class="metric-name">Production AI adoption</p></div>
+      <div class="cell col-q2"><p class="num">52%</p></div>
+      <div class="cell col-q3"><p class="num">61%</p></div>
+      <div class="cell col-q4"><p class="num">71%</p></div>
+      <div class="cell col-q1n"><p class="num">78%</p></div>
+    </div>
+
+    <div class="row r2">
+      <div class="cell col-metric"><p class="metric-name">Median time to prod (days)</p></div>
+      <div class="cell col-q2"><p class="num">96</p></div>
+      <div class="cell col-q3"><p class="num">71</p></div>
+      <div class="cell col-q4"><p class="num">54</p></div>
+      <div class="cell col-q1n"><p class="num">42</p></div>
+    </div>
+
+    <div class="row r3">
+      <div class="cell col-metric"><p class="metric-name">Inference spend index</p></div>
+      <div class="cell col-q2"><p class="num">100</p></div>
+      <div class="cell col-q3"><p class="num">142</p></div>
+      <div class="cell col-q4"><p class="num">231</p></div>
+      <div class="cell col-q1n"><p class="num">340</p></div>
+    </div>
+
+    <div class="row r4">
+      <div class="cell col-metric"><p class="metric-name">On-prem share of inference</p></div>
+      <div class="cell col-q2"><p class="num">12%</p></div>
+      <div class="cell col-q3"><p class="num">18%</p></div>
+      <div class="cell col-q4"><p class="num">29%</p></div>
+      <div class="cell col-q1n"><p class="num">41%</p></div>
+    </div>
+
+    <div class="row r5">
+      <div class="cell col-metric"><p class="metric-name">ML hires per 1,000 employees</p></div>
+      <div class="cell col-q2"><p class="num">3.2</p></div>
+      <div class="cell col-q3"><p class="num">3.9</p></div>
+      <div class="cell col-q4"><p class="num">5.1</p></div>
+      <div class="cell col-q1n"><p class="num">6.4</p></div>
+    </div>
+
+    <div class="row r6">
+      <div class="cell col-metric"><p class="metric-name">Composite adoption index</p></div>
+      <div class="cell col-q2"><p class="num">100</p></div>
+      <div class="cell col-q3"><p class="num">128</p></div>
+      <div class="cell col-q4"><p class="num">182</p></div>
+      <div class="cell col-q1n"><p class="num">241</p></div>
+    </div>
+  </div>
+
+  <div class="footer"><p>Composite index: equal-weight z-score of the five rows above, indexed to Q1 2025 = 100</p></div>
+</body>
+</html>
