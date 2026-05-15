@@ -188,6 +188,11 @@ See [`skills/oh-my-slides/SKILL.md`](skills/oh-my-slides/SKILL.md) ("Phase 4-B �
 [`references/build-utilities.md`](skills/oh-my-slides/references/build-utilities.md) for
 templates, native table helpers, and gradient-header workarounds.
 
+A complete worked example — a 6-slide analyst report (title, KPI cards, bar
+chart, comparison, data table, conclusion) — lives in
+[`examples/ai-adoption-report/`](examples/ai-adoption-report/) and builds to
+~180 KB of editable PPTX in ~13s.
+
 ---
 
 ## Scripts Reference

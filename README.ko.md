@@ -188,6 +188,10 @@ HTML**을 작성해야 합니다):
 [`references/build-utilities.md`](skills/oh-my-slides/references/build-utilities.md) 에서
 템플릿, 네이티브 테이블 헬퍼, 그라데이션 헤더 우회법을 확인하세요.
 
+실전 예제 — 6슬라이드 분석 보고서(타이틀, KPI 카드, 막대그래프, 비교, 데이터 테이블,
+결론) 가 [`examples/ai-adoption-report/`](examples/ai-adoption-report/) 에 들어있고,
+약 13초 안에 180 KB 편집 가능 PPTX로 빌드됩니다.
+
 ---
 
 ## 스크립트 레퍼런스

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  html, body { margin: 0; padding: 0; }
+  body {
+    width: 960px; height: 540px;
+    font-family: Arial, sans-serif;
+    background: #F8FAFC;
+    color: #0B1220;
+  }
+  .head {
+    position: absolute;
+    left: 64px; top: 56px; right: 64px;
+  }
+  h2 {
+    font-family: Georgia, serif;
+    font-size: 36px; font-weight: 700;
+    margin: 0;
+    color: #0B1220;
+  }
+  h2 .accent { color: #DC2626; }
+  p.kicker {
+    font-family: Arial, sans-serif;
+    font-size: 12px; letter-spacing: 4px;
+    color: #DC2626;
+    margin: 0 0 12px 0;
+  }
+  .grid {
+    position: absolute;
+    left: 64px; top: 180px; right: 64px;
+    height: 280px;
+  }
+  .card {
+    position: absolute;
+    width: 200px; height: 280px;
+    background: #FFFFFF;
+    border: 2px solid #0B1220;
+  }
+  .card.c1 { left: 0px; }
+  .card.c2 { left: 216px; background: #0B1220; }
+  .card.c3 { left: 432px; }
+  .card.c4 { left: 648px; background: #FACC15; }
+
+  .card-num {
+    position: absolute;
+    left: 20px; top: 36px; right: 20px;
+  }
+  .card-num p {
+    font-family: Georgia, serif;
+    font-size: 64px; font-weight: 700;
+    margin: 0;
+    color: #0B1220;
+    line-height: 1;
+  }
+  .card.c2 .card-num p { color: #FACC15; }
+
+  .card-unit {
+    position: absolute;
+    left: 20px; top: 120px;
+  }
+  .card-unit p {
+    font-size: 16px;
+    margin: 0;
+    color: #64748B;
+  }
+  .card.c2 .card-unit p { color: #94A3B8; }
+
+  .card-label {
+    position: absolute;
+    left: 20px; top: 200px; right: 20px;
+  }
+  .card-label p {
+    font-size: 14px;
+    margin: 0;
+    color: #0B1220;
+    line-height: 1.4;
+  }
+  .card.c2 .card-label p { color: #F8FAFC; }
+
+  .footer {
+    position: absolute;
+    left: 64px; bottom: 28px;
+  }
+  .footer p {
+    font-size: 11px;
+    color: #94A3B8;
+    margin: 0;
+  }
+</style>
+</head>
+<body>
+  <div class="head">
+    <p class="kicker">EXECUTIVE SUMMARY</p>
+    <h2>Four numbers that <span class="accent">moved this quarter</span></h2>
+  </div>
+
+  <div class="grid">
+    <div class="card c1">
+      <div class="card-num"><p>78</p></div>
+      <div class="card-unit"><p>percent</p></div>
+      <div class="card-label"><p>of enterprises now run at least one production AI workload</p></div>
+    </div>
+    <div class="card c2">
+      <div class="card-num"><p>3.4x</p></div>
+      <div class="card-unit"><p>year over year</p></div>
+      <div class="card-label"><p>growth in inference spend among Fortune 500</p></div>
+    </div>
+    <div class="card c3">
+      <div class="card-num"><p>42</p></div>
+      <div class="card-unit"><p>days median</p></div>
+      <div class="card-label"><p>from prototype to production for new AI features</p></div>
+    </div>
+    <div class="card c4">
+      <div class="card-num"><p>$1.2B</p></div>
+      <div class="card-unit"><p>cumulative</p></div>
+      <div class="card-label"><p>cost saved via on-prem inference vs. API fallback</p></div>
+    </div>
+  </div>
+
+  <div class="footer"><p>Source: Braincrew Enterprise AI Survey 2026 Q1 — n=1,240</p></div>
+</body>
+</html>
