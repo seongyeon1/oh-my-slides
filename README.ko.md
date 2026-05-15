@@ -158,15 +158,35 @@ PPTX 테마 XML을 읽어 색상/폰트/미디어를 추출하고, Office 폰트
 |------|---------|-----------|-------------|
 | **Viewport 캡처** | `capture-viewport.js` | 아니오 | 픽셀 퍼펙트 |
 | **Slide 캡처** | `capture-and-build.js` | 아니오 | 픽셀 퍼펙트 |
-| **html2pptx** | PptxGenJS 네이티브 변환 | 예 | 제한적 |
+| **편집 가능 PPTX** | `build-editable-pptx.js` | **예** | 웹 안전 폰트 한정 |
 
 ```bash
-# Viewport HTML 프레젠테이션을 PPTX로 변환
+# 이미지 기반 (픽셀 퍼펙트, 편집 불가) — 단일 Viewport HTML → PPTX
 node skills/oh-my-slides/scripts/capture-viewport.js presentation.html output.pptx
-
-# 뷰포트 크기 조절로 최적 캡처
 node skills/oh-my-slides/scripts/capture-viewport.js presentation.html output.pptx --width=1200 --height=675
+
+# 편집 가능 PPTX — PPTX-ready HTML 디렉토리 → 편집 가능한 .pptx
+# slide*.html 파일을 순회하며 html2pptx로 변환해 실제 텍스트/도형/표 객체로 만듬
+node skills/oh-my-slides/scripts/build-editable-pptx.js docs/workspace
+node skills/oh-my-slides/scripts/build-editable-pptx.js docs/workspace docs/output.pptx
+node skills/oh-my-slides/scripts/build-editable-pptx.js docs/workspace --pattern="slide-*.html"
 ```
+
+### 편집 가능 PPTX 입력 요구사항
+
+편집 모드는 텍스트/도형/표를 네이티브 PowerPoint 객체로 보존하므로, 입력 HTML이 PPTX 제약을
+따라야 합니다 (브라우저 발표용 풍부한 Viewport HTML은 그대로 못 쓰고 **별도의 PPTX용
+HTML**을 작성해야 합니다):
+
+- **body 크기를 레이아웃에 맞춤**: 16:9 → `width: 960px; height: 540px` (= 720pt × 405pt)
+- **웹 안전 폰트만**: Arial, Verdana, Georgia, Courier New
+- **CSS 그라데이션 / 애니메이션 금지** (단색 사용; 그라데이션은 PNG로 미리 렌더링해 오버레이)
+- **모든 텍스트는 시맨틱 태그 안에**: `<p>`, `<h1>`–`<h6>`, `<ul>`, `<ol>`
+- 콘텐츠가 body를 넘치면 안 됨
+
+[`skills/oh-my-slides/SKILL.md`](skills/oh-my-slides/SKILL.md) ("Phase 4-B 방식 A") 와
+[`references/build-utilities.md`](skills/oh-my-slides/references/build-utilities.md) 에서
+템플릿, 네이티브 테이블 헬퍼, 그라데이션 헤더 우회법을 확인하세요.
 
 ---
 
@@ -182,7 +202,8 @@ node skills/oh-my-slides/scripts/capture-viewport.js presentation.html output.pp
 | `render-preview.js` | 전체 슬라이드 → 프리뷰 그리드 이미지 (빠른 리뷰용) |
 | `render-all.js` | 각 슬라이드 → 개별 PNG 파일 |
 | `create-gradient.js` | Sharp로 그라데이션 PNG 생성 (PPTX 헤더 오버레이용) |
-| `html2pptx.js` | HTML 슬라이드 → 편집 가능한 PPTX 요소 변환 (텍스트, 도형, 이미지) |
+| `html2pptx.js` | 라이브러리: 단일 HTML 슬라이드 → pptxgenjs 편집 가능 슬라이드 (텍스트/도형/이미지) |
+| `build-editable-pptx.js` | CLI: PPTX-ready HTML 디렉토리 → 편집 가능한 다중 슬라이드 `.pptx` (`html2pptx.js` 사용) |
 
 ---
 
@@ -205,7 +226,7 @@ oh-my-slides/
 │       │   ├── presets/           # 20개 CSS 프리셋 파일
 │       │   ├── layouts/           # 8개 슬라이드 레이아웃 패턴
 │       │   └── components/        # 재사용 CSS 모듈
-│       └── scripts/               # Node.js 자동화 스크립트 (7개)
+│       └── scripts/               # Node.js 자동화 스크립트 (8개)
 ├── gallery.html                   # 인터랙티브 프리셋 갤러리
 ├── install.sh                     # 원커맨드 설치
 ├── uninstall.sh                   # 깔끔한 제거
